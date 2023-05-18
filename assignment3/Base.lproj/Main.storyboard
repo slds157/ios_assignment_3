@@ -139,10 +139,10 @@
             </objects>
             <point key="canvasLocation" x="3210" y="-35"/>
         </scene>
-        <!--View Controller-->
+        <!--Movie Edit View Controller-->
         <scene sceneID="vH1-y5-jlH">
             <objects>
-                <viewController id="ogj-1z-fQl" sceneMemberID="viewController">
+                <viewController id="ogj-1z-fQl" customClass="MovieEditViewController" customModule="assignment3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mEb-Ih-Kas">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,6 +204,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3Ts-74-QDF"/>
+                    <connections>
+                        <outlet property="confirmButton" destination="e9D-Mo-6Rc" id="d25-gh-QRP"/>
+                        <outlet property="movieIntro" destination="grL-gt-e1J" id="FOZ-uW-9Qw"/>
+                        <outlet property="moviePoster" destination="6PZ-bv-cyD" id="W2Y-2s-pJ3"/>
+                        <outlet property="movieSelection" destination="GcM-hS-SoO" id="Rle-td-h5Y"/>
+                        <outlet property="movieTitle" destination="c4Z-yd-H5P" id="1hr-QY-Uzi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXw-sM-Ffc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
