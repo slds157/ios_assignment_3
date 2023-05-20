@@ -17,6 +17,8 @@
 		BCA5584D2A15F55E003A176A /* assignment3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5584C2A15F55E003A176A /* assignment3Tests.swift */; };
 		BCA558572A15F55E003A176A /* assignment3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA558562A15F55E003A176A /* assignment3UITests.swift */; };
 		BCA558592A15F55E003A176A /* assignment3UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA558582A15F55E003A176A /* assignment3UITestsLaunchTests.swift */; };
+		DE78AAB62A18B176001DD16F /* TicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78AAB52A18B176001DD16F /* TicketViewController.swift */; };
+		DE78AAB82A18B1A7001DD16F /* BookingHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78AAB72A18B1A7001DD16F /* BookingHistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		BCA558522A15F55E003A176A /* assignment3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = assignment3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA558562A15F55E003A176A /* assignment3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignment3UITests.swift; sourceTree = "<group>"; };
 		BCA558582A15F55E003A176A /* assignment3UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignment3UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DE78AAB52A18B176001DD16F /* TicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketViewController.swift; sourceTree = "<group>"; };
+		DE78AAB72A18B1A7001DD16F /* BookingHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingHistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				BCA558402A15F55E003A176A /* LaunchScreen.storyboard */,
 				BCA558432A15F55E003A176A /* Info.plist */,
 				BCA0918A2A1630220097022B /* MovieEditViewController.swift */,
+				DE78AAB52A18B176001DD16F /* TicketViewController.swift */,
+				DE78AAB72A18B1A7001DD16F /* BookingHistoryViewController.swift */,
 			);
 			path = assignment3;
 			sourceTree = "<group>";
@@ -262,6 +268,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCA5583A2A15F55D003A176A /* ViewController.swift in Sources */,
+				DE78AAB82A18B1A7001DD16F /* BookingHistoryViewController.swift in Sources */,
+				DE78AAB62A18B176001DD16F /* TicketViewController.swift in Sources */,
 				BCA0918B2A1630220097022B /* MovieEditViewController.swift in Sources */,
 				BCA558362A15F55D003A176A /* AppDelegate.swift in Sources */,
 				BCA558382A15F55D003A176A /* SceneDelegate.swift in Sources */,
