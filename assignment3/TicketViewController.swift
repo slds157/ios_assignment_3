@@ -9,6 +9,14 @@ import UIKit
 
 class TicketViewController: UIViewController {
 
+    
+    @IBOutlet weak var tableView: UITableView!
+
+    @IBAction func goHome(_ sender: UIBarButtonItem) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
