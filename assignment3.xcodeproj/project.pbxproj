@@ -16,8 +16,12 @@
 		BCA5583F2A15F55E003A176A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCA5583E2A15F55E003A176A /* Assets.xcassets */; };
 		BCA558422A15F55E003A176A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCA558402A15F55E003A176A /* LaunchScreen.storyboard */; };
 		BCA5584D2A15F55E003A176A /* assignment3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5584C2A15F55E003A176A /* assignment3Tests.swift */; };
-		BCA558572A15F55E003A176A /* assignment3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA558562A15F55E003A176A /* assignment3UITests.swift */; };
 		BCA558592A15F55E003A176A /* assignment3UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA558582A15F55E003A176A /* assignment3UITestsLaunchTests.swift */; };
+		DE78AAC22A18CCE6001DD16F /* IssuedTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78AAC12A18CCE6001DD16F /* IssuedTicketViewController.swift */; };
+		DE78AAC42A18CCF5001DD16F /* BookingHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78AAC32A18CCF5001DD16F /* BookingHistoryViewController.swift */; };
+		EAF1EB7F2A18F0D600171D70 /* SeatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF1EB7D2A18F0D300171D70 /* SeatButton.swift */; };
+		EAF1EB812A18F0DE00171D70 /* SeatSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF1EB802A18F0DE00171D70 /* SeatSelectionViewController.swift */; };
+		EAF1EB822A18F0E200171D70 /* assignment3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA558562A15F55E003A176A /* assignment3UITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		BCA558522A15F55E003A176A /* assignment3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = assignment3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA558562A15F55E003A176A /* assignment3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignment3UITests.swift; sourceTree = "<group>"; };
 		BCA558582A15F55E003A176A /* assignment3UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignment3UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DE78AAC12A18CCE6001DD16F /* IssuedTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuedTicketViewController.swift; sourceTree = "<group>"; };
+		DE78AAC32A18CCF5001DD16F /* BookingHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingHistoryViewController.swift; sourceTree = "<group>"; };
+		EAF1EB7D2A18F0D300171D70 /* SeatButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeatButton.swift; path = assignment3/SeatButton.swift; sourceTree = SOURCE_ROOT; };
+		EAF1EB802A18F0DE00171D70 /* SeatSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeatSelectionViewController.swift; path = assignment3/SeatSelectionViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +120,10 @@
 				BCA558432A15F55E003A176A /* Info.plist */,
 				BCA0918A2A1630220097022B /* MovieEditViewController.swift */,
 				9B6292ED2A189CA9001E88A9 /* MovieChooseViewController.swift */,
+				DE78AAC12A18CCE6001DD16F /* IssuedTicketViewController.swift */,
+				DE78AAC32A18CCF5001DD16F /* BookingHistoryViewController.swift */,
+				EAF1EB7D2A18F0D300171D70 /* SeatButton.swift */,
+				BCA558562A15F55E003A176A /* assignment3UITests.swift */,
 			);
 			path = assignment3;
 			sourceTree = "<group>";
@@ -127,7 +139,7 @@
 		BCA558552A15F55E003A176A /* assignment3UITests */ = {
 			isa = PBXGroup;
 			children = (
-				BCA558562A15F55E003A176A /* assignment3UITests.swift */,
+				EAF1EB802A18F0DE00171D70 /* SeatSelectionViewController.swift */,
 				BCA558582A15F55E003A176A /* assignment3UITestsLaunchTests.swift */,
 			);
 			path = assignment3UITests;
@@ -266,8 +278,12 @@
 			files = (
 				BCA5583A2A15F55D003A176A /* ViewController.swift in Sources */,
 				BCA0918B2A1630220097022B /* MovieEditViewController.swift in Sources */,
+				DE78AAC22A18CCE6001DD16F /* IssuedTicketViewController.swift in Sources */,
 				9B6292EE2A189CA9001E88A9 /* MovieChooseViewController.swift in Sources */,
+				EAF1EB7F2A18F0D600171D70 /* SeatButton.swift in Sources */,
 				BCA558362A15F55D003A176A /* AppDelegate.swift in Sources */,
+				DE78AAC42A18CCF5001DD16F /* BookingHistoryViewController.swift in Sources */,
+				EAF1EB822A18F0E200171D70 /* assignment3UITests.swift in Sources */,
 				BCA558382A15F55D003A176A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCA558572A15F55E003A176A /* assignment3UITests.swift in Sources */,
+				EAF1EB812A18F0DE00171D70 /* SeatSelectionViewController.swift in Sources */,
 				BCA558592A15F55E003A176A /* assignment3UITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
