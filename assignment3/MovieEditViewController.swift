@@ -24,7 +24,9 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
     let dates = ["2023-05-14", "2023-05-15", "2023-05-16"]
         var times = ["10:00 AM", "2:00 PM", "6:00 PM"]
     
+    let userName : String = " "
     
+    var selectedTime : String = " "
     
     var movieName : String = "Evil Dead Rise"
     
@@ -71,6 +73,11 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
         
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedTime = "\(dates[pickerView.selectedRow(inComponent: 0)]) -- \(times[pickerView.selectedRow(inComponent: 1)])"
+        print(selectedTime)
+    }
+    
     func showMovieIntro(movieName : String) -> String{
         switch movieName{
         case "Evil Dead Rise":
@@ -98,7 +105,16 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
             return "0"
         }
         
+        
     }
+    
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "sendMovieInfo"{
+//            let destinationView = segue.destination as! ViewController
+//
+//        }
+ //   }
     /*
     // MARK: - Navigation
 
