@@ -24,8 +24,19 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
     let dates = ["2023-05-14", "2023-05-15", "2023-05-16"]
         var times = ["10:00 AM", "2:00 PM", "6:00 PM"]
     
-    var movieName : String = "Thor"
-    var thor : String = "Thor: Love and Thunder is a 2022 American superhero film based on Marvel Comics featuring the character Thor. Produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures, it is the sequel to Thor: Ragnarok (2017) and the 29th film in the Marvel Cinematic Universe (MCU). The film was directed by Taika Waititi, who co-wrote the screenplay with Jennifer Kaytin Robinson, and stars Chris Hemsworth as Thor alongside Christian Bale, Tessa Thompson, Jaimie Alexander, Waititi, Russell Crowe, and Natalie Portman. In the film, Thor attempts to find inner peace, but must return to action and recruit Valkyrie (Thompson), Korg (Waititi), and Jane Foster (Portman)—who is now the Mighty Thor—to stop Gorr the God Butcher (Bale) from eliminating all gods."
+    
+    var movieName : String = "Evil Dead Rise"
+    
+    let evilDead : String = "Evil Dead Rise is a 2023 American supernatural horror film written and directed by Lee Cronin. It is the fifth installment of the Evil Dead film series. The film stars Lily Sullivan and Alyssa Sutherland as two estranged sisters trying to survive and save their family from deadites. Morgan Davies, Gabrielle Echols, and Nell Fisher (in her film debut) appear in supporting roles."
+    
+    let bookClub : String = "Book Club: The Next Chapter is a 2023 American romantic comedy film written and directed by Bill Holderman. It serves as a sequel to Book Club (2018). The film stars Diane Keaton, Jane Fonda, Candice Bergen and Mary Steenburgen, Craig T. Nelson, Giancarlo Giannini, Andy García, and Don Johnson."
+    
+    let loveAgain : String = "Love Again is a 2023 American romantic comedy-drama film written and directed by James C. Strouse. It is an English-language remake of the 2016 German film SMS für Dich, itself based on a novel by Sofie Cramer.[6] The film stars Priyanka Chopra Jonas, Sam Heughan, and Celine Dion, in her first feature film, portraying a fictionalized version of herself."
+    
+    let guardians : String = "Guardians of the Galaxy Vol. 3 (stylized in marketing as Guardians of the Galaxy Volume 3) is a 2023 American superhero film based on the Marvel Comics superhero team Guardians of the Galaxy, produced by Marvel Studios, and distributed by Walt Disney Studios Motion Pictures."
+    
+    let johnWick : String = "John Wick: Chapter 4 is a 2023 American neo-noir action thriller film directed by Chad Stahelski and written by Shay Hatten and Michael Finch. The sequel to John Wick: Chapter 3 – Parabellum (2019) and the fourth installment in the John Wick franchise, the film stars Keanu Reeves as the title character, alongside Donnie Yen, Bill Skarsgård, Laurence Fishburne, Hiroyuki Sanada, Shamier Anderson, Lance Reddick, Rina Sawayama, Scott Adkins, Clancy Brown, and Ian McShane. In the film, John Wick sets out to get revenge on the High Table and those who left him for dead."
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         movieTitle.text = movieName
@@ -61,8 +72,17 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     func showMovieIntro(movieName : String) -> String{
         switch movieName{
-        case "Thor":
-            return thor
+        case "Evil Dead Rise":
+            return evilDead
+        case "Book Club: The Next Chapter":
+            return bookClub
+        case "Love Again":
+            return loveAgain
+        case "Guardians of the Galaxy - Vol 3":
+            return guardians
+        case "John Wick: Chapter 4":
+            return johnWick
+            
         default:
             return "0"
         }
