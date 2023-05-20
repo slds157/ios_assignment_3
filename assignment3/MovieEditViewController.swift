@@ -24,7 +24,7 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
     let dates = ["2023-05-14", "2023-05-15", "2023-05-16"]
         var times = ["10:00 AM", "2:00 PM", "6:00 PM"]
     
-    let userName : String = " "
+    var userName : String = " "
     
     var selectedTime : String = " "
     

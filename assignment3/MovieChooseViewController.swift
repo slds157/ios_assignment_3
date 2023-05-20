@@ -84,6 +84,7 @@ class MovieChooseViewController: UIViewController, UIScrollViewDelegate {
         if segue.identifier == "goToEdit", let movieTitle = self.movieTitle {
             let VC = segue.destination as! MovieEditViewController
             VC.movieName = movieTitle
+            VC.userName = nameField.text!
             attentionLabel.text = ""
         }
     }
