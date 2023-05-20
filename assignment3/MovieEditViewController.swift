@@ -25,6 +25,7 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
         var times = ["10:00 AM", "2:00 PM", "6:00 PM"]
     
     
+    
     var movieName : String = "Evil Dead Rise"
     
     let evilDead : String = "Evil Dead Rise is a 2023 American supernatural horror film written and directed by Lee Cronin. It is the fifth installment of the Evil Dead film series. The film stars Lily Sullivan and Alyssa Sutherland as two estranged sisters trying to survive and save their family from deadites. Morgan Davies, Gabrielle Echols, and Nell Fisher (in her film debut) appear in supporting roles."
