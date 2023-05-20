@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B6292EE2A189CA9001E88A9 /* MovieChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6292ED2A189CA9001E88A9 /* MovieChooseViewController.swift */; };
 		BCA0918B2A1630220097022B /* MovieEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA0918A2A1630220097022B /* MovieEditViewController.swift */; };
 		BCA558362A15F55D003A176A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA558352A15F55D003A176A /* AppDelegate.swift */; };
 		BCA558382A15F55D003A176A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA558372A15F55D003A176A /* SceneDelegate.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B6292ED2A189CA9001E88A9 /* MovieChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieChooseViewController.swift; sourceTree = "<group>"; };
 		BCA0918A2A1630220097022B /* MovieEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEditViewController.swift; sourceTree = "<group>"; };
 		BCA558322A15F55D003A176A /* assignment3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = assignment3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA558352A15F55D003A176A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				BCA558402A15F55E003A176A /* LaunchScreen.storyboard */,
 				BCA558432A15F55E003A176A /* Info.plist */,
 				BCA0918A2A1630220097022B /* MovieEditViewController.swift */,
+				9B6292ED2A189CA9001E88A9 /* MovieChooseViewController.swift */,
 			);
 			path = assignment3;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				BCA5583A2A15F55D003A176A /* ViewController.swift in Sources */,
 				BCA0918B2A1630220097022B /* MovieEditViewController.swift in Sources */,
+				9B6292EE2A189CA9001E88A9 /* MovieChooseViewController.swift in Sources */,
 				BCA558362A15F55D003A176A /* AppDelegate.swift in Sources */,
 				BCA558382A15F55D003A176A /* SceneDelegate.swift in Sources */,
 			);
