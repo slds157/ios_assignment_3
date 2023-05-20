@@ -9,7 +9,7 @@ import UIKit
 
 class IssuedTicketViewController: UIViewController {
     
-    var Ticket_Key: String
+    var Ticket_Key: String = " "
     
     @IBOutlet weak var tableView: UITableView!
     
