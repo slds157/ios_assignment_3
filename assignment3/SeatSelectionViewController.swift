@@ -8,25 +8,24 @@
 import UIKit
 
 
-
 class SeatSelectionViewController: UIViewController {
     
     var seats: [[Seat]] = Array(repeating: Array(repeating: Seat(row: 0, column: 0, status: .available), count: 6), count: 10)
     var seatButtons: [[SeatButton]] = []
     let seatButtonSize: CGSize = CGSize(width: 40, height: 40)
     let seatButtonSpacing: CGFloat = 10
-    var movie: String
-    var showTime: String
-    var userName: String
+    var movie: String = " "
+    var showTime: String = " "
+    var userName: String = " "
     
-    var Tickt_Key: String
+    var Ticket_Key: String = " "
     var selectedSeats: [Seat] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Tickt_Key: String = "\(userName)\(movie)\(showTime)"
+        Ticket_Key = "\(userName)\(movie)\(showTime)"
         loadSeatsFromUserDefaults()
         setupSeatButtons()
     }
@@ -42,7 +41,7 @@ class SeatSelectionViewController: UIViewController {
         let defaults = UserDefaults.standard
 
         // Try to get the data from UserDefaults
-        if let savedSeatsData = defaults.object(forKey: Tickt_Key) as? Data {
+        if let savedSeatsData = defaults.object(forKey: Ticket_Key) as? Data {
             let decoder = PropertyListDecoder()
             if let loadedSeats = try? decoder.decode([Seat].self, from: savedSeatsData) {
                 // Reset all the seats to be available first
@@ -107,15 +106,14 @@ class SeatSelectionViewController: UIViewController {
     func saveSeatsToUserDefaults() {
         // Change the status of all selected seats to 'unavailable'
         for seat in selectedSeats {
-            if let seatInSeats = seats[seat.row][seat.column] {
-                seatInSeats.status = .unavailable
-            }
+            seats[seat.row][seat.column].status = .unavailable
         }
+
         let defaults = UserDefaults.standard
         let encoder = PropertyListEncoder()
 
         if let savedData = try? encoder.encode(selectedSeats) {
-            defaults.set(savedData, forKey: Tickt_Key)
+            defaults.set(savedData, forKey: Ticket_Key)
         }
     }
     
@@ -123,7 +121,7 @@ class SeatSelectionViewController: UIViewController {
         saveSeatsToUserDefaults()
     }
     
-    override func prepare(for segue: UIStoryboard, sender: Any?){
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToTicket"{
             let ticketVC = segue.destination as! IssuedTicketViewController
             ticketVC.Ticket_Key = Ticket_Key
