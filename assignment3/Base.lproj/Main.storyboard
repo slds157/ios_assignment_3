@@ -32,7 +32,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <segue destination="ck4-2V-FXS" kind="show" id="4Nu-9Q-W8T"/>
+                                    <segue destination="zdg-T0-Nto" kind="show" id="67f-kI-daW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -120,38 +120,11 @@
             </objects>
             <point key="canvasLocation" x="54.198473282442748" y="-34.507042253521128"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="JZh-br-rux">
-            <objects>
-                <viewController id="ck4-2V-FXS" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cCn-vt-Aep">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIu-wp-PSC">
-                                <rect key="frame" x="159" y="585" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <segue destination="zdg-T0-Nto" kind="show" id="9Kr-tE-agI"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Pe4-jZ-obY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="aX7-FZ-aQ8"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JBe-mP-kGG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2034" y="-35"/>
-        </scene>
         <!--Movie Choose View Controller-->
         <scene sceneID="vtY-e5-GcM">
             <objects>
                 <viewController id="zdg-T0-Nto" customClass="MovieChooseViewController" customModule="assignment3" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="lbT-L9-7u7">
+                    <view key="view" contentMode="scaleToFill" id="lbT-L9-7u7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -214,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JwW-7W-Inu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3209.9236641221373" y="-35.211267605633807"/>
+            <point key="canvasLocation" x="2727" y="-27"/>
         </scene>
         <!--Movie Edit View Controller-->
         <scene sceneID="vH1-y5-jlH">
