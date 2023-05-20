@@ -109,12 +109,15 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
     }
     
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "sendMovieInfo"{
-//            let destinationView = segue.destination as! ViewController
-//
-//        }
- //   }
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if segue.identifier == "sendMovieInfo"{
+            let destinationView = segue.destination as! SeatSelectionViewController
+          destinationView.userName = userName
+          destinationView.movie = movieName
+          destinationView.showTime = selectedTime
+          print(selectedTime)
+        }
+}
     /*
     // MARK: - Navigation
 
