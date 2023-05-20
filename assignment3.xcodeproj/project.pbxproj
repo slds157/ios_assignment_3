@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B6292EE2A189CA9001E88A9 /* MovieChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6292ED2A189CA9001E88A9 /* MovieChooseViewController.swift */; };
 		BCA0918B2A1630220097022B /* MovieEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA0918A2A1630220097022B /* MovieEditViewController.swift */; };
 		BCA558362A15F55D003A176A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA558352A15F55D003A176A /* AppDelegate.swift */; };
 		BCA558382A15F55D003A176A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA558372A15F55D003A176A /* SceneDelegate.swift */; };
@@ -17,6 +18,8 @@
 		BCA5584D2A15F55E003A176A /* assignment3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA5584C2A15F55E003A176A /* assignment3Tests.swift */; };
 		BCA558572A15F55E003A176A /* assignment3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA558562A15F55E003A176A /* assignment3UITests.swift */; };
 		BCA558592A15F55E003A176A /* assignment3UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA558582A15F55E003A176A /* assignment3UITestsLaunchTests.swift */; };
+		DE78AAC22A18CCE6001DD16F /* IssuedTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78AAC12A18CCE6001DD16F /* IssuedTicketViewController.swift */; };
+		DE78AAC42A18CCF5001DD16F /* BookingHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE78AAC32A18CCF5001DD16F /* BookingHistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B6292ED2A189CA9001E88A9 /* MovieChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieChooseViewController.swift; sourceTree = "<group>"; };
 		BCA0918A2A1630220097022B /* MovieEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEditViewController.swift; sourceTree = "<group>"; };
 		BCA558322A15F55D003A176A /* assignment3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = assignment3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA558352A15F55D003A176A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +55,8 @@
 		BCA558522A15F55E003A176A /* assignment3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = assignment3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA558562A15F55E003A176A /* assignment3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignment3UITests.swift; sourceTree = "<group>"; };
 		BCA558582A15F55E003A176A /* assignment3UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignment3UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DE78AAC12A18CCE6001DD16F /* IssuedTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuedTicketViewController.swift; sourceTree = "<group>"; };
+		DE78AAC32A18CCF5001DD16F /* BookingHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingHistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,9 @@
 				BCA558402A15F55E003A176A /* LaunchScreen.storyboard */,
 				BCA558432A15F55E003A176A /* Info.plist */,
 				BCA0918A2A1630220097022B /* MovieEditViewController.swift */,
+				9B6292ED2A189CA9001E88A9 /* MovieChooseViewController.swift */,
+				DE78AAC12A18CCE6001DD16F /* IssuedTicketViewController.swift */,
+				DE78AAC32A18CCF5001DD16F /* BookingHistoryViewController.swift */,
 			);
 			path = assignment3;
 			sourceTree = "<group>";
@@ -263,7 +272,10 @@
 			files = (
 				BCA5583A2A15F55D003A176A /* ViewController.swift in Sources */,
 				BCA0918B2A1630220097022B /* MovieEditViewController.swift in Sources */,
+				DE78AAC22A18CCE6001DD16F /* IssuedTicketViewController.swift in Sources */,
+				9B6292EE2A189CA9001E88A9 /* MovieChooseViewController.swift in Sources */,
 				BCA558362A15F55D003A176A /* AppDelegate.swift in Sources */,
+				DE78AAC42A18CCF5001DD16F /* BookingHistoryViewController.swift in Sources */,
 				BCA558382A15F55D003A176A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
