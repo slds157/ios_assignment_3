@@ -74,14 +74,24 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
     func showMovieIntro(movieName : String) -> String{
         switch movieName{
         case "Evil Dead Rise":
+            let imageValue = UIImage(named: "image1")
+            moviePoster.image = imageValue
             return evilDead
         case "Book Club: The Next Chapter":
+            let imageValue = UIImage(named: "image2")
+            moviePoster.image = imageValue
             return bookClub
         case "Love Again":
+            let imageValue = UIImage(named: "image3")
+            moviePoster.image = imageValue
             return loveAgain
         case "Guardians of the Galaxy - Vol 3":
+            let imageValue = UIImage(named: "image4")
+            moviePoster.image = imageValue
             return guardians
         case "John Wick: Chapter 4":
+            let imageValue = UIImage(named: "image5")
+            moviePoster.image = imageValue
             return johnWick
             
         default:
