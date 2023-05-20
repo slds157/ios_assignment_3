@@ -9,6 +9,8 @@ import UIKit
 
 class IssuedTicketViewController: UIViewController {
     
+    var Tickt_Key: String
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func goHome(_ sender: UIBarButtonItem) {
