@@ -110,7 +110,7 @@
         <scene sceneID="vtY-e5-GcM">
             <objects>
                 <viewController id="zdg-T0-Nto" customClass="MovieChooseViewController" customModule="assignment3" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lbT-L9-7u7">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="lbT-L9-7u7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -120,7 +120,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome ！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7V-ZE-qCX">
                                         <rect key="frame" x="0.0" y="0.0" width="373.33333333333331" height="37.333333333333336"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="373.32999999999998" id="4G3-3z-I9L"/>
                                             <constraint firstAttribute="height" constant="37.329999999999998" id="j74-dc-h9V"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -139,7 +138,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yy-dV-itw">
                                         <rect key="frame" x="0.0" y="180" width="373.33333333333331" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="85" id="cAa-05-yGA"/>
                                             <constraint firstAttribute="height" constant="50" id="eRU-xJ-ID7"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
