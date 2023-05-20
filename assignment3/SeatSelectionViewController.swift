@@ -9,7 +9,6 @@ import UIKit
 
 import UIKit
 
-
 class SeatSelectionViewController: UIViewController {
     
     private var seats: [[Seat]] = Array(repeating: Array(repeating: Seat(row: 0, column: 0, status: .available), count: 6), count: 10)
