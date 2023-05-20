@@ -7,47 +7,65 @@
 
 import UIKit
 
-import UIKit
+
 
 class SeatSelectionViewController: UIViewController {
     
-    private var seats: [[Seat]] = Array(repeating: Array(repeating: Seat(row: 0, column: 0, status: .available), count: 6), count: 10)
-    private var seatButtons: [[SeatButton]] = []
-    private let seatButtonSize: CGSize = CGSize(width: 40, height: 40)
-    private let seatButtonSpacing: CGFloat = 10
-    var movie: String = "Movie1"
-    var showTime: String = "Show1"
-    var userName: String = "User"
+    var seats: [[Seat]] = Array(repeating: Array(repeating: Seat(row: 0, column: 0, status: .available), count: 6), count: 10)
+    var seatButtons: [[SeatButton]] = []
+    let seatButtonSize: CGSize = CGSize(width: 40, height: 40)
+    let seatButtonSpacing: CGFloat = 10
+    var movie: String
+    var showTime: String
+    var userName: String
+    
+    var Tickt_Key: String
+    var selectedSeats: [Seat] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        Tickt_Key: String = "\(userName)\(movie)\(showTime)"
         loadSeatsFromUserDefaults()
         setupSeatButtons()
     }
     
-    private func initializeSeats() {
+    func initializeSeats() {
         for row in 0..<seats.count {
             for column in 0..<seats[row].count {
                 seats[row][column] = Seat(row: row, column: column, status: .available)
             }
         }
     }
-    private func loadSeatsFromUserDefaults() {
+    func loadSeatsFromUserDefaults() {
         let defaults = UserDefaults.standard
 
-        if let savedSeats = defaults.object(forKey: "\(movie)\(showTime)Seats") as? Data {
+        // Try to get the data from UserDefaults
+        if let savedSeatsData = defaults.object(forKey: Tickt_Key) as? Data {
             let decoder = PropertyListDecoder()
-            if let loadedSeats = try? decoder.decode([[Seat]].self, from: savedSeats) {
-                seats = loadedSeats
+            if let loadedSeats = try? decoder.decode([Seat].self, from: savedSeatsData) {
+                // Reset all the seats to be available first
+                initializeSeats()
+
+                // If we successfully got the data, loop over it
+                for loadedSeat in loadedSeats {
+                    // Make sure the seat position exists in the seats array
+                    if loadedSeat.row < seats.count && loadedSeat.column < seats[loadedSeat.row].count {
+                        // Assign the loaded seat to the correct position in the seats array
+                        seats[loadedSeat.row][loadedSeat.column] = loadedSeat
+                    }
+                }
                 return
             }
         }
+
+        // If we get here, there was no data in UserDefaults or it couldn't be decoded
+        // So we initialize all seats as available
         initializeSeats()
     }
     
-    private func setupSeatButtons() {
+    func setupSeatButtons() {
         let numberOfRows = seats.count
         let numberOfColumns = seats.first?.count ?? 0
         let totalWidth = CGFloat(numberOfColumns) * (seatButtonSize.width + seatButtonSpacing) - seatButtonSpacing
@@ -73,22 +91,44 @@ class SeatSelectionViewController: UIViewController {
         }
     }
     
-    @objc private func seatButtonTapped(_ sender: SeatButton) {
-            if sender.seat.status == .available {
-                sender.seat.status = .occupied
-            } else if sender.seat.status == .occupied {
-                sender.seat.status = .available
+    @objc func seatButtonTapped(_ sender: SeatButton) {
+        if sender.seat.status == .available {
+            sender.seat.status = .occupied
+            selectedSeats.append(sender.seat)
+        } else if sender.seat.status == .occupied {
+            sender.seat.status = .available
+            if let index = selectedSeats.firstIndex(where: { $0.row == sender.seat.row && $0.column == sender.seat.column }) {
+                selectedSeats.remove(at: index)
             }
-            sender.updateAppearance()
+        }
+        sender.updateAppearance()
         }
     
-    private func saveSeatsToUserDefaults() {
+    func saveSeatsToUserDefaults() {
+        // Change the status of all selected seats to 'unavailable'
+        for seat in selectedSeats {
+            if let seatInSeats = seats[seat.row][seat.column] {
+                seatInSeats.status = .unavailable
+            }
+        }
         let defaults = UserDefaults.standard
         let encoder = PropertyListEncoder()
 
-        if let savedData = try? encoder.encode(seats) {
-            defaults.set(savedData, forKey: "\(movie)\(showTime)Seats")
+        if let savedData = try? encoder.encode(selectedSeats) {
+            defaults.set(savedData, forKey: Tickt_Key)
         }
     }
+    
+    @IBAction func confirmBarButtonTapped(_ sender: UIBarButtonItem) {
+        saveSeatsToUserDefaults()
+    }
+    
+    override func prepare(for segue: UIStoryboard, sender: Any?){
+        if segue.identifier == "goToTicket"{
+            let ticketVC = segue.destination as! IssuedTicketViewController
+            ticketVC.Ticket_Key = Ticket_Key
+        }
+    }
+    
 }
 
