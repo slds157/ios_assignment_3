@@ -15,8 +15,10 @@ class SeatSelectionViewController: UIViewController {
     private var seatButtons: [[SeatButton]] = []
     private let seatButtonSize: CGSize = CGSize(width: 40, height: 40)
     private let seatButtonSpacing: CGFloat = 10
-    private var movie: String = "Movie1"
-    private var showTime: String = "Show1"
+    var movie: String = "Movie1"
+    var showTime: String = "Show1"
+    var userName: String = "User"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
