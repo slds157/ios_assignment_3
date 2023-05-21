@@ -135,24 +135,57 @@
                     <view key="view" contentMode="scaleToFill" id="lbT-L9-7u7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vno-7o-lzc">
+                                <rect key="frame" x="10" y="565" width="373.33333333333331" height="46.666666666666629"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yy-dV-itw">
+                                <rect key="frame" x="154" y="684" width="85" height="55"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Next">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="chooseButtonCheck:" destination="zdg-T0-Nto" eventType="touchUpInside" id="kWx-4x-pX5"/>
+                                    <segue destination="ogj-1z-fQl" kind="show" identifier="goToEdit" id="D1l-nA-FnA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome ！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7V-ZE-qCX">
+                                <rect key="frame" x="19" y="519" width="373.33333333333331" height="37.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="z6x-Ci-7Ps"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Yy-dV-itw" firstAttribute="leading" secondItem="z6x-Ci-7Ps" secondAttribute="leading" constant="154" id="1dP-jO-eZ3"/>
+                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="bottom" secondItem="9Yy-dV-itw" secondAttribute="bottom" constant="79" id="2iF-wy-mME"/>
+                            <constraint firstItem="9Yy-dV-itw" firstAttribute="top" secondItem="z6x-Ci-7Ps" secondAttribute="top" constant="581" id="3nH-Tf-e6t"/>
+                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="trailing" secondItem="Vno-7o-lzc" secondAttribute="trailing" constant="9.6699999999999999" id="4Rj-PQ-D9q"/>
+                            <constraint firstItem="Vno-7o-lzc" firstAttribute="top" secondItem="z6x-Ci-7Ps" secondAttribute="top" constant="462" id="6xC-Ui-lub"/>
+                            <constraint firstItem="r7V-ZE-qCX" firstAttribute="leading" secondItem="z6x-Ci-7Ps" secondAttribute="leading" constant="19" id="BN3-s9-obx"/>
+                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="trailing" secondItem="r7V-ZE-qCX" secondAttribute="trailing" constant="0.66666666666668561" id="D8N-eB-fXu"/>
+                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="bottom" secondItem="r7V-ZE-qCX" secondAttribute="bottom" constant="261.66666666666674" id="N84-nc-dma"/>
+                            <constraint firstItem="r7V-ZE-qCX" firstAttribute="top" secondItem="z6x-Ci-7Ps" secondAttribute="top" constant="416" id="Pqt-Ew-JKe"/>
+                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="trailing" secondItem="9Yy-dV-itw" secondAttribute="trailing" constant="154" id="SsC-Cl-KAp"/>
+                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="bottom" secondItem="Vno-7o-lzc" secondAttribute="bottom" constant="206.33000000000001" id="caw-ty-zWI"/>
+                            <constraint firstItem="Vno-7o-lzc" firstAttribute="leading" secondItem="z6x-Ci-7Ps" secondAttribute="leading" constant="10" id="une-yk-K3c"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Movie Selection" id="SZm-9A-m3v">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="C7q-Do-sVl">
-                            <connections>
-                                <action selector="chooseButtonCheck:" destination="zdg-T0-Nto" id="3VY-fH-fuZ"/>
-                                <segue destination="ogj-1z-fQl" kind="show" identifier="goToEdit" id="CnE-aC-pG2"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Movie Selection" id="SZm-9A-m3v"/>
                     <connections>
-                        <outlet property="chooseButton" destination="C7q-Do-sVl" id="WD9-DH-7GA"/>
+                        <outlet property="attentionLabel" destination="r7V-ZE-qCX" id="EYd-Na-1oh"/>
+                        <outlet property="chooseButton" destination="9Yy-dV-itw" id="Ja1-c2-tGS"/>
+                        <outlet property="nameField" destination="Vno-7o-lzc" id="d8s-dB-GuJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JwW-7W-Inu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1962.5954198473282" y="-37.323943661971832"/>
+            <point key="canvasLocation" x="1964" y="-37"/>
         </scene>
         <!--Time Selection-->
         <scene sceneID="vH1-y5-jlH">
@@ -161,19 +194,70 @@
                     <view key="view" contentMode="scaleToFill" id="mEb-Ih-Kas">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9D-Mo-6Rc">
+                                <rect key="frame" x="154" y="738" width="85" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Confirm"/>
+                                <connections>
+                                    <segue destination="1Ls-lP-zSf" kind="show" identifier="sendMovieInfo" id="l08-Oz-wvU"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6PZ-bv-cyD">
+                                <rect key="frame" x="76.666666666666686" y="113" width="240" height="280"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="OBn-7W-dBf"/>
+                                    <constraint firstAttribute="width" constant="240" id="XQK-nj-Cvq"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4Z-yd-H5P">
+                                <rect key="frame" x="170.66666666666666" y="414" width="52" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="grL-gt-e1J">
+                                <rect key="frame" x="46.666666666666657" y="448" width="300" height="120"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="AFd-Lm-tRI"/>
+                                    <constraint firstAttribute="height" constant="120" id="PKg-cN-GHK"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcM-hS-SoO">
+                                <rect key="frame" x="46.666666666666657" y="578" width="300" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Rix-j5-0pd"/>
+                                    <constraint firstAttribute="width" constant="300" id="YsV-DV-Ofq"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MxG-TB-3Hy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="c4Z-yd-H5P" firstAttribute="centerY" secondItem="mEb-Ih-Kas" secondAttribute="centerY" id="9Bk-Ud-B3i"/>
+                            <constraint firstItem="GcM-hS-SoO" firstAttribute="top" secondItem="grL-gt-e1J" secondAttribute="bottom" constant="10" id="Drm-Rk-MeK"/>
+                            <constraint firstItem="GcM-hS-SoO" firstAttribute="centerX" secondItem="mEb-Ih-Kas" secondAttribute="centerX" id="NdK-fM-j2o"/>
+                            <constraint firstItem="grL-gt-e1J" firstAttribute="centerX" secondItem="mEb-Ih-Kas" secondAttribute="centerX" id="Txh-B4-1Gq"/>
+                            <constraint firstItem="c4Z-yd-H5P" firstAttribute="centerX" secondItem="mEb-Ih-Kas" secondAttribute="centerX" id="Yb3-it-xtY"/>
+                            <constraint firstItem="e9D-Mo-6Rc" firstAttribute="centerX" secondItem="mEb-Ih-Kas" secondAttribute="centerX" id="aAg-n4-BfC"/>
+                            <constraint firstItem="6PZ-bv-cyD" firstAttribute="centerX" secondItem="mEb-Ih-Kas" secondAttribute="centerX" id="cRt-f9-UQU"/>
+                            <constraint firstItem="6PZ-bv-cyD" firstAttribute="top" secondItem="MxG-TB-3Hy" secondAttribute="top" constant="10" id="eSm-Q4-xU8"/>
+                            <constraint firstItem="grL-gt-e1J" firstAttribute="top" secondItem="c4Z-yd-H5P" secondAttribute="bottom" constant="10" id="fuW-tt-sD4"/>
+                            <constraint firstItem="e9D-Mo-6Rc" firstAttribute="top" secondItem="GcM-hS-SoO" secondAttribute="bottom" constant="10" id="rHU-dQ-IzV"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Time Selection" id="3Ts-74-QDF">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="1Oz-an-rgQ">
-                            <connections>
-                                <action selector="confirmButtonTapped:" destination="ogj-1z-fQl" id="xMD-Gv-0KH"/>
-                                <segue destination="1Ls-lP-zSf" kind="show" identifier="sendMovieInfo" id="cmG-L5-Uke"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Time Selection" id="3Ts-74-QDF"/>
                     <connections>
-                        <outlet property="confirmButton" destination="1Oz-an-rgQ" id="mlY-u4-rPX"/>
+                        <outlet property="confirmButton" destination="e9D-Mo-6Rc" id="d25-gh-QRP"/>
+                        <outlet property="movieIntro" destination="grL-gt-e1J" id="FOZ-uW-9Qw"/>
+                        <outlet property="moviePoster" destination="6PZ-bv-cyD" id="W2Y-2s-pJ3"/>
+                        <outlet property="movieSelection" destination="GcM-hS-SoO" id="Rle-td-h5Y"/>
+                        <outlet property="movieTitle" destination="c4Z-yd-H5P" id="1hr-QY-Uzi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXw-sM-Ffc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -191,15 +275,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Seat Selection" id="pjz-5a-wFn">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="rpF-Ya-K3P">
+                        <barButtonItem key="rightBarButtonItem" title="Confirm" id="rpF-Ya-K3P">
                             <connections>
                                 <segue destination="M1z-Gp-OJw" kind="show" identifier="goToTicket" id="T9a-83-lc3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="confirm" destination="rpF-Ya-K3P" id="5UM-Gn-2Wn"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6O-Jc-jRx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

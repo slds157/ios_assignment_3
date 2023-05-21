@@ -9,21 +9,25 @@ import UIKit
 
 class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    @IBOutlet weak var confirmButton: UIBarButtonItem!
-    @IBAction func confirmButtonTapped(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "sendMovieInfo", sender: self)
-    }
     
-    var moviePoster: UIImageView!
-    var movieTitle: UILabel!
-    var movieIntro: UITextView!
-    var movieSelection: UIPickerView!
+
+    @IBOutlet weak var moviePoster: UIImageView!
     
-    var dates = ["2023-06-14", "2023-06-15", "2023-06-16", "2023-06-17", "2023-06-18"]
-    var times = ["10:00 AM", "1:00 PM", "4:00 PM", "7:30 PM", "11:00 PM"]
+    @IBOutlet weak var movieTitle: UILabel!
+    
+    @IBOutlet weak var movieIntro: UITextView!
+    
+    @IBOutlet weak var movieSelection: UIPickerView!
+    
+    @IBOutlet weak var confirmButton: UIButton!
+    
+    var dates = ["2023-06-14", "2023-06-15", "2023-06-16"]
+    var times = ["10:00 AM", "2:00 PM", "6:00 PM"]
     
     var userName : String = " "
+    
     var selectedTime : String = " "
+    
     var movieName : String = "Evil Dead Rise"
     
     let evilDead : String = "Evil Dead Rise is a 2023 American supernatural horror film written and directed by Lee Cronin. It is the fifth installment of the Evil Dead film series. The film stars Lily Sullivan and Alyssa Sutherland as two estranged sisters trying to survive and save their family from deadites. Morgan Davies, Gabrielle Echols, and Nell Fisher (in her film debut) appear in supporting roles."
@@ -38,70 +42,17 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setUpLayout()
-        
         movieTitle.text = movieName
         movieIntro.text = showMovieIntro(movieName: movieName)
         movieSelection.dataSource = self
         movieSelection.delegate = self
         
-        selectedTime = "\(dates[0]) - \(times[0])"
+        // Set the initial selectedTime
+        selectedTime = "\(dates[0]) -- \(times[0])"
     }
 
-    func setUpLayout() {
-        let textWidth = self.view.frame.size.width * 0.8
-        let imageWidth = self.view.frame.size.width * 0.6
-        let imageHeight = self.view.frame.size.height * 0.4
-        let scrollViewX = (self.view.frame.size.width - imageWidth) / 2
-        let textX: CGFloat = self.view.frame.size.width * 0.1
-
-        let statusBarHeight: CGFloat
-        if #available(iOS 13.0, *) {
-            statusBarHeight = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-        } else {
-            statusBarHeight = UIApplication.shared.statusBarFrame.height
-        }
-        let topOffset: CGFloat = (self.navigationController?.navigationBar.frame.size.height ?? 0) + statusBarHeight + 30
-        let scrollViewY = topOffset
-
-        moviePoster = UIImageView(frame: CGRect(x: scrollViewX, y: scrollViewY, width: imageWidth, height: imageHeight))
-        moviePoster.image = UIImage(named: "image1")
-        moviePoster.contentMode = .scaleAspectFit
-        self.view.addSubview(moviePoster)
-
-        movieTitle = UILabel(frame: CGRect(x: textX, y: moviePoster.frame.maxY - 40, width: textWidth, height: 40))
-        movieTitle.textAlignment = .center
-        movieTitle.font = UIFont.boldSystemFont(ofSize: 16)
-        self.view.addSubview(movieTitle)
-        
-        movieIntro = UITextView(frame: CGRect(x: textX, y: movieTitle.frame.maxY, width: textWidth, height: 160))
-        movieIntro.font = UIFont.systemFont(ofSize: 14)
-        movieIntro.isEditable = false
-        self.view.addSubview(movieIntro)
-        
-        let selectTimeLabel = UILabel(frame: CGRect(x: textX, y: movieIntro.frame.maxY + 20, width: textWidth, height: 20))
-        selectTimeLabel.textAlignment = .center
-        selectTimeLabel.text = "Please select a time:"
-        selectTimeLabel.font = UIFont.boldSystemFont(ofSize: 16)
-        self.view.addSubview(selectTimeLabel)
-        
-        movieSelection = UIPickerView(frame: CGRect(x: textX, y: selectTimeLabel.frame.maxY, width: textWidth, height: 100))
-        self.view.addSubview(movieSelection)
-    }
-
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        var pickerLabel: UILabel? = (view as? UILabel)
-        if pickerLabel == nil {
-            pickerLabel = UILabel()
-            pickerLabel?.font = UIFont.systemFont(ofSize: 14)
-            pickerLabel?.textAlignment = .center
-        }
-        pickerLabel?.text = component == 0 ? dates[row] : times[row]
-
-        return pickerLabel!
-    }
     
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
@@ -126,7 +77,7 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedTime = "\(dates[pickerView.selectedRow(inComponent: 0)]) - \(times[pickerView.selectedRow(inComponent: 1)])"
+        selectedTime = "\(dates[pickerView.selectedRow(inComponent: 0)]) -- \(times[pickerView.selectedRow(inComponent: 1)])"
         print(selectedTime)
     }
     
@@ -156,7 +107,10 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
         default:
             return "0"
         }
+        
+        
     }
+    
     
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "sendMovieInfo"{
@@ -167,4 +121,5 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
           print(selectedTime)
         }
    }
+
 }

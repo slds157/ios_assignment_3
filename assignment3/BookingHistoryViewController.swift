@@ -23,6 +23,7 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
         
         loadBookingsFromUserDefaults()
 
+        // The view controller itself will provide the delegate methods and row data for the table view.
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -59,6 +60,7 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookingCell", for: indexPath)
 
+        // Configure the cell...
         let booking = bookings[indexPath.row]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
