@@ -10,6 +10,10 @@ import UIKit
 
 class SeatSelectionViewController: UIViewController {
     
+    
+    
+    @IBOutlet weak var confirmButton: UIButton!
+    
     var seats: [[Seat]] = Array(repeating: Array(repeating: Seat(row: 0, column: 0, status: .available), count: 6), count: 10)
     var seatButtons: [[SeatButton]] = []
     var screenWidth: CGFloat = UIScreen.main.bounds.size.width
@@ -139,11 +143,22 @@ class SeatSelectionViewController: UIViewController {
         }
     }
     
-    @IBAction func confirmBarButtonTapped(_ sender: UIBarButtonItem) {
-        saveSeatsToUserDefaults()
-        let defaults = UserDefaults.standard
-        defaults.set(Date(), forKey: "BookingDate_\(Ticket_Key)")
+    
+    
+    @IBAction func confirmButtonTapped(_ sender: Any) {
+        
+        if selectedSeats.isEmpty {
+            let alertController = UIAlertController(title: "No seat selected", message: "Please select at least one seat.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            saveSeatsToUserDefaults()
+            let defaults = UserDefaults.standard
+            defaults.set(Date(), forKey: "BookingDate_\(Ticket_Key)")
+        }
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToTicket"{

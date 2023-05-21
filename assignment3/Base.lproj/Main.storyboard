@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xBB-4I-Z6F">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xBB-4I-Z6F">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,16 +32,23 @@
                                     <segue destination="63L-uX-u9Z" kind="show" id="lpz-0A-kVV"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="iRL-Jl-fCK">
+                                <rect key="frame" x="141" y="191" width="111" height="128"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iRL-Jl-fCK" secondAttribute="trailing" constant="141" id="8ts-gA-RbW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pVJ-Gr-ThK" secondAttribute="trailing" constant="124" id="Ofw-hK-VOy"/>
                             <constraint firstItem="pVJ-Gr-ThK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="124" id="TLP-gH-498"/>
                             <constraint firstItem="EX8-Q1-8d0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="128" id="VEC-BT-ICs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pVJ-Gr-ThK" secondAttribute="bottom" constant="307" id="VLh-wz-5wA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iRL-Jl-fCK" secondAttribute="bottom" constant="499" id="VQO-s7-9ph"/>
+                            <constraint firstItem="iRL-Jl-fCK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="88" id="WBn-Oj-p7l"/>
                             <constraint firstItem="EX8-Q1-8d0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="306" id="Xp6-pP-MYT"/>
                             <constraint firstItem="pVJ-Gr-ThK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="373" id="ZFD-Q2-oay"/>
+                            <constraint firstItem="iRL-Jl-fCK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="141" id="a1u-4a-zx1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EX8-Q1-8d0" secondAttribute="trailing" constant="128" id="hCd-7e-dS2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EX8-Q1-8d0" secondAttribute="bottom" constant="374" id="jyJ-o2-Yo8"/>
                         </constraints>
@@ -51,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978" y="-35"/>
+            <point key="canvasLocation" x="977.86259541984725" y="-35.211267605633807"/>
         </scene>
         <!--Booking History-->
         <scene sceneID="a0O-tc-tX5">
@@ -153,7 +159,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome ！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7V-ZE-qCX">
-                                <rect key="frame" x="19" y="519" width="373.33333333333331" height="37.333333333333314"/>
+                                <rect key="frame" x="19" y="519" width="373.33333333333331" height="37.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -271,16 +277,30 @@
                     <view key="view" contentMode="scaleToFill" id="It6-1K-ywH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsX-il-6vM">
+                                <rect key="frame" x="154" y="748" width="85" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Confirm"/>
+                                <connections>
+                                    <action selector="confirmButtonTapped:" destination="1Ls-lP-zSf" eventType="touchUpInside" id="ZBF-rS-vb7"/>
+                                    <segue destination="M1z-Gp-OJw" kind="show" id="Dh4-DT-2VO"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="gDw-io-qbV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gDw-io-qbV" firstAttribute="bottom" secondItem="NsX-il-6vM" secondAttribute="bottom" constant="35" id="7qR-w3-1L4"/>
+                            <constraint firstItem="NsX-il-6vM" firstAttribute="leading" secondItem="gDw-io-qbV" secondAttribute="leading" constant="154" id="MBE-cH-3eF"/>
+                            <constraint firstItem="gDw-io-qbV" firstAttribute="trailing" secondItem="NsX-il-6vM" secondAttribute="trailing" constant="154" id="UR8-cY-Ahf"/>
+                            <constraint firstItem="NsX-il-6vM" firstAttribute="top" secondItem="gDw-io-qbV" secondAttribute="top" constant="645" id="obo-oe-aAR"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Seat Selection" id="pjz-5a-wFn">
-                        <barButtonItem key="rightBarButtonItem" title="Confirm" id="rpF-Ya-K3P">
-                            <connections>
-                                <segue destination="M1z-Gp-OJw" kind="show" identifier="goToTicket" id="T9a-83-lc3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Seat Selection" id="pjz-5a-wFn"/>
+                    <connections>
+                        <outlet property="confirmButton" destination="NsX-il-6vM" id="Uzn-SK-SKJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6O-Jc-jRx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -354,6 +374,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="logo" width="666" height="856"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
