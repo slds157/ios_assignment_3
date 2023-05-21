@@ -19,10 +19,16 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     @IBOutlet weak var movieSelection: UIPickerView!
     
-    @IBOutlet weak var confirmButton: UIButton!
     
-    var dates = ["2023-06-14", "2023-06-15", "2023-06-16"]
-    var times = ["10:00 AM", "2:00 PM", "6:00 PM"]
+    
+    @IBOutlet weak var confirmButton: UIBarButtonItem!
+    
+    @IBAction func confirmButtonTapped(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "sendMovieInfo", sender: self)
+    }
+    
+    var dates = ["2023-06-14", "2023-06-15", "2023-06-16", "2023-06-17", "2023-06-18"]
+    var times = ["10:00 AM", "1:00 PM", "4:00 PM", "7:30 PM", "11:00 PM"]
     
     var userName : String = " "
     
@@ -48,7 +54,7 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
         movieSelection.delegate = self
         
         // Set the initial selectedTime
-        selectedTime = "\(dates[0]) -- \(times[0])"
+        selectedTime = "\(dates[0]) - \(times[0])"
     }
 
     
@@ -77,7 +83,7 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedTime = "\(dates[pickerView.selectedRow(inComponent: 0)]) -- \(times[pickerView.selectedRow(inComponent: 1)])"
+        selectedTime = "\(dates[pickerView.selectedRow(inComponent: 0)]) - \(times[pickerView.selectedRow(inComponent: 1)])"
         print(selectedTime)
     }
     
