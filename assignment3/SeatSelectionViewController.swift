@@ -25,7 +25,7 @@ class SeatSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Ticket_Key = "\(userName)\(movie)\(showTime)"
+        Ticket_Key = "\(userName)|\(movie)|\(showTime)"
         loadSeatsFromUserDefaults()
         setupSeatButtons()
     }
@@ -112,7 +112,7 @@ class SeatSelectionViewController: UIViewController {
         let defaults = UserDefaults.standard
         let encoder = PropertyListEncoder()
 
-        if let savedData = try? encoder.encode(selectedSeats) {
+        if let savedData = try? encoder.encode(seats.flatMap({$0}).filter({$0.status == .unavailable})) {
             defaults.set(savedData, forKey: Ticket_Key)
         }
     }
@@ -125,8 +125,10 @@ class SeatSelectionViewController: UIViewController {
         if segue.identifier == "goToTicket"{
             let ticketVC = segue.destination as! IssuedTicketViewController
             ticketVC.Ticket_Key = Ticket_Key
+            ticketVC.issuedSeats = selectedSeats // pass the selected seats information
         }
     }
+
     
 }
 
