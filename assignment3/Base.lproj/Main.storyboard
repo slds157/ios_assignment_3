@@ -284,7 +284,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Confirm"/>
                                 <connections>
                                     <action selector="confirmButtonTapped:" destination="1Ls-lP-zSf" eventType="touchUpInside" id="ZBF-rS-vb7"/>
-                                    <segue destination="M1z-Gp-OJw" kind="show" id="Dh4-DT-2VO"/>
+                                    <segue destination="M1z-Gp-OJw" kind="show" identifier="goToTicket" id="Dh4-DT-2VO"/>
                                 </connections>
                             </button>
                         </subviews>
