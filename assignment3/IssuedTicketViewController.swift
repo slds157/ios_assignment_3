@@ -42,16 +42,17 @@ class IssuedTicketViewController: UIViewController {
     }
     
     func displayTicketInfo() {
-        var detailsText = "Thank you \(userName), Your order is: \nMovie: \(movie)\nTime: \(showTime)\n"
+        var detailsText = "Thank you \(userName), \n\nYour order is: \n\nMovie: \(movie)\n\nTime: \(showTime)\n\n"
         for seat in issuedSeats {
-            detailsText += "Seat: Row: \(seat.row + 1), Column: \(seat.column + 1)\n"
+            detailsText += "Seat: Row: \(seat.row + 1), Column: \(seat.column + 1)\n\n"
         }
         let defaults = UserDefaults.standard
         if let bookingDateTime = defaults.object(forKey: "BookingDate_\(Ticket_Key)") as? Date {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-            detailsText += "Order time: \(dateFormatter.string(from: bookingDateTime))"
+            detailsText += "Order time: \(dateFormatter.string(from: bookingDateTime))\n\n"
         }
+        detailsText += "\nYou can confirm or cancel this order by tapping the buttons below"
         ticketDetailsTextView.text = detailsText
     }
 

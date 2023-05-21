@@ -119,6 +119,8 @@ class SeatSelectionViewController: UIViewController {
     
     @IBAction func confirmBarButtonTapped(_ sender: UIBarButtonItem) {
         saveSeatsToUserDefaults()
+        let defaults = UserDefaults.standard
+        defaults.set(Date(), forKey: "BookingDate_\(Ticket_Key)")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
