@@ -10,9 +10,10 @@ import Foundation
 
 class MovieChooseViewController: UIViewController, UIScrollViewDelegate {
     
-    @IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var attentionLabel: UILabel!
-    @IBOutlet weak var chooseButton: UIButton!
+    @IBOutlet weak var chooseButton: UIBarButtonItem!
+    @IBAction func chooseButtonCheck(_ sender: UIBarButtonItem) {
+        currentPageCalculation(scrollView)
+    }
     
     var scrollView: UIScrollView!
     var images: [String] = ["image1", "image2", "image3", "image4", "image5"]
@@ -22,6 +23,9 @@ class MovieChooseViewController: UIViewController, UIScrollViewDelegate {
     var movieTitle : String?
     var movieTitleCollection : [String: String] = ["image1": "Evil Dead Rise", "image2": "Book Club: The Next Chapter", "image3": "Love Again", "image4": "Guardians of the Galaxy - Vol 3", "image5": "John Wick: Chapter 4"]
     var pageControl: UIPageControl!
+    var titleLabel: UILabel!
+    var nameField: UITextField!
+    var attentionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +43,17 @@ class MovieChooseViewController: UIViewController, UIScrollViewDelegate {
         } else {
             statusBarHeight = UIApplication.shared.statusBarFrame.height
         }
-        let topOffset: CGFloat = (self.navigationController?.navigationBar.frame.size.height ?? 0) + statusBarHeight
+        // Decrease topOffset to bring the picture up
+        let topOffset: CGFloat = (self.navigationController?.navigationBar.frame.size.height ?? 0) + statusBarHeight + 30
+        
         let scrollViewY = topOffset
+
+        // Create titleLabel
+        titleLabel = UILabel(frame: CGRect(x: scrollViewX, y: scrollViewY + imageHeight - 40, width: imageWidth, height: 40)) // Positioned below scrollView
+        titleLabel.textAlignment = .center
+        titleLabel.text = movieTitleCollection[images[0]] // Initial title
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 18) // Making title bold
+        self.view.addSubview(titleLabel)
 
         scrollView = UIScrollView(frame: CGRect(x: 0, y: scrollViewY, width: self.view.frame.size.width, height: imageHeight))
         scrollView.isPagingEnabled = true
@@ -69,18 +82,39 @@ class MovieChooseViewController: UIViewController, UIScrollViewDelegate {
         pageControl.pageIndicatorTintColor = .lightGray
         pageControl.currentPageIndicatorTintColor = .black
         self.view.addSubview(pageControl)
+        
+        // Create instructionLabel
+        let instructionLabel = UILabel(frame: CGRect(x: scrollViewX, y: pageControl.frame.maxY + 10, width: imageWidth, height: 40)) // Positioned below pageControl
+        instructionLabel.textAlignment = .center
+        instructionLabel.text = "Please select a movie and enter your name:"
+        instructionLabel.font = UIFont.systemFont(ofSize: 16)
+        instructionLabel.numberOfLines = 0 // This allows the label to have as many lines as needed
+        instructionLabel.lineBreakMode = .byWordWrapping // This wraps text to the next line
+        self.view.addSubview(instructionLabel)
+        
+        // Create UITextField
+        nameField = UITextField(frame: CGRect(x: scrollViewX, y: instructionLabel.frame.maxY + 10, width: imageWidth, height: 40))
+        nameField.borderStyle = .roundedRect
+        nameField.placeholder = "Enter your name"
+        self.view.addSubview(nameField)
+
+        // Create UILabel
+        attentionLabel = UILabel(frame: CGRect(x: scrollViewX, y: nameField.frame.maxY + 10, width: imageWidth, height: 40))
+        attentionLabel.textColor = .red
+        attentionLabel.textAlignment = .center
+        attentionLabel.numberOfLines = 0
+        attentionLabel.lineBreakMode = .byWordWrapping
+        self.view.addSubview(attentionLabel)
+
     }
     
-    @IBAction func chooseButtonCheck(_ sender: UIButton) {
-        currentPageCalculation(scrollView)
-    }
-
     func currentPageCalculation(_ scrollView: UIScrollView) {
         let pageWidth = scrollView.frame.size.width
         currentImage = Int((scrollView.contentOffset.x + pageWidth / 2) / pageWidth)
         imageName = images[currentImage]
         if let imgName = imageName, let title = movieTitleCollection[imgName] {
             self.movieTitle = title
+            titleLabel.text = title // Updating title label
         }
         pageControl.currentPage = currentImage
     }
