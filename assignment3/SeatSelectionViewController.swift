@@ -34,7 +34,7 @@ class SeatSelectionViewController: UIViewController {
         seatButtonWidth = screenWidth/10
         seatButtonSize = CGSize(width: seatButtonWidth, height: seatButtonWidth)
         seatButtonSpacing = seatButtonWidth/4
-        Ticket_Key = "\(userName)|\(movie)|\(showTime)"
+        Ticket_Key = "\(movie)|\(showTime)"
         loadSeatsFromUserDefaults()
         setupSeatButtons()
     }
@@ -164,7 +164,7 @@ class SeatSelectionViewController: UIViewController {
         if segue.identifier == "goToTicket"{
             let ticketVC = segue.destination as! IssuedTicketViewController
             ticketVC.Ticket_Key = Ticket_Key
-            ticketVC.issuedSeats = selectedSeats // pass the selected seats information
+            ticketVC.userName = userName
         }
     }
 

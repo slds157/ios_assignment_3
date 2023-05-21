@@ -36,10 +36,9 @@ class IssuedTicketViewController: UIViewController {
             }
         }
         let keyComponents = Ticket_Key.split(separator: "|")
-        if keyComponents.count >= 3 {
-            userName = String(keyComponents[0])
-            movie = String(keyComponents[1])
-            showTime = String(keyComponents[2])
+        if keyComponents.count >= 2 {
+            movie = String(keyComponents[0])
+            showTime = String(keyComponents[1])
         }
     }
     
