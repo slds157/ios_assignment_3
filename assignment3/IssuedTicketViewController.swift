@@ -15,6 +15,7 @@ class IssuedTicketViewController: UIViewController {
     var movie: String = ""
     var showTime: String = ""
     
+    @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var ticketDetailsTextView: UITextView!
     @IBOutlet weak var Confirm: UIButton!
     @IBOutlet weak var Cancel: UIButton!
@@ -23,6 +24,7 @@ class IssuedTicketViewController: UIViewController {
         super.viewDidLoad()
         loadSeatsFromUserDefaults()
         displayTicketInfo()
+        displayMoviePoster()
     }
     
     func loadSeatsFromUserDefaults() {
@@ -49,6 +51,23 @@ class IssuedTicketViewController: UIViewController {
 
         detailsText += "\nYou can confirm or cancel this order by tapping the buttons below"
         ticketDetailsTextView.text = detailsText
+    }
+    
+    func displayMoviePoster() {
+        switch movie {
+        case "Evil Dead Rise":
+            moviePoster.image = UIImage(named: "image1")
+        case "Book Club: The Next Chapter":
+            moviePoster.image = UIImage(named: "image2")
+        case "Love Again":
+            moviePoster.image = UIImage(named: "image3")
+        case "Guardians of the Galaxy - Vol 3":
+            moviePoster.image = UIImage(named: "image4")
+        case "John Wick: Chapter 4":
+            moviePoster.image = UIImage(named: "image5")
+        default:
+            print("No matching movie poster found")
+        }
     }
 
     @IBAction func confirmButtonTapped(_ sender: UIButton) {

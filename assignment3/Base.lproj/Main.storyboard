@@ -295,7 +295,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2TV-39-wxa">
-                                <rect key="frame" x="76" y="161" width="240" height="300"/>
+                                <rect key="frame" x="76" y="411" width="240" height="319"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -303,7 +303,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYm-93-sn8">
-                                <rect key="frame" x="236" y="493" width="85" height="35"/>
+                                <rect key="frame" x="231" y="738" width="85" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Confirm"/>
                                 <connections>
@@ -311,35 +311,40 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHV-VM-kDn">
-                                <rect key="frame" x="75" y="493" width="77" height="35"/>
+                                <rect key="frame" x="76" y="738" width="77" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelButtonTapped:" destination="M1z-Gp-OJw" eventType="touchUpInside" id="58Q-13-7XG"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="frb-kf-qTk">
+                                <rect key="frame" x="76" y="103" width="240" height="280"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CXL-ut-XII"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="CXL-ut-XII" firstAttribute="trailing" secondItem="2TV-39-wxa" secondAttribute="trailing" constant="77" id="2Bv-Ru-Vtb"/>
-                            <constraint firstItem="CXL-ut-XII" firstAttribute="bottom" secondItem="2TV-39-wxa" secondAttribute="bottom" constant="357" id="4Zf-aW-FzV"/>
-                            <constraint firstItem="CXL-ut-XII" firstAttribute="bottom" secondItem="XYm-93-sn8" secondAttribute="bottom" constant="290" id="97F-tX-zUQ"/>
-                            <constraint firstItem="CXL-ut-XII" firstAttribute="trailing" secondItem="XYm-93-sn8" secondAttribute="trailing" constant="72" id="BK2-XC-JHN"/>
+                            <constraint firstItem="CXL-ut-XII" firstAttribute="bottom" secondItem="2TV-39-wxa" secondAttribute="bottom" constant="88" id="4Zf-aW-FzV"/>
+                            <constraint firstItem="CXL-ut-XII" firstAttribute="bottom" secondItem="XYm-93-sn8" secondAttribute="bottom" constant="45" id="97F-tX-zUQ"/>
+                            <constraint firstItem="CXL-ut-XII" firstAttribute="trailing" secondItem="XYm-93-sn8" secondAttribute="trailing" constant="77" id="BK2-XC-JHN"/>
                             <constraint firstItem="2TV-39-wxa" firstAttribute="leading" secondItem="CXL-ut-XII" secondAttribute="leading" constant="76" id="GGt-aZ-dBj"/>
-                            <constraint firstItem="CXL-ut-XII" firstAttribute="trailing" secondItem="wHV-VM-kDn" secondAttribute="trailing" constant="241" id="JeI-Vt-2FS"/>
-                            <constraint firstItem="2TV-39-wxa" firstAttribute="top" secondItem="CXL-ut-XII" secondAttribute="top" constant="58" id="MUI-al-zM6"/>
-                            <constraint firstItem="CXL-ut-XII" firstAttribute="bottom" secondItem="wHV-VM-kDn" secondAttribute="bottom" constant="290" id="PaR-pu-x1d"/>
-                            <constraint firstItem="wHV-VM-kDn" firstAttribute="top" secondItem="CXL-ut-XII" secondAttribute="top" constant="390" id="UYs-T6-MMo"/>
-                            <constraint firstItem="XYm-93-sn8" firstAttribute="leading" secondItem="CXL-ut-XII" secondAttribute="leading" constant="236" id="dg4-kV-BcY"/>
-                            <constraint firstItem="wHV-VM-kDn" firstAttribute="leading" secondItem="CXL-ut-XII" secondAttribute="leading" constant="75" id="pDe-Ft-ia2"/>
-                            <constraint firstItem="XYm-93-sn8" firstAttribute="top" secondItem="CXL-ut-XII" secondAttribute="top" constant="390" id="wUU-qM-4KE"/>
+                            <constraint firstItem="CXL-ut-XII" firstAttribute="trailing" secondItem="wHV-VM-kDn" secondAttribute="trailing" constant="240" id="JeI-Vt-2FS"/>
+                            <constraint firstItem="2TV-39-wxa" firstAttribute="top" secondItem="CXL-ut-XII" secondAttribute="top" constant="308" id="MUI-al-zM6"/>
+                            <constraint firstItem="CXL-ut-XII" firstAttribute="bottom" secondItem="wHV-VM-kDn" secondAttribute="bottom" constant="45" id="PaR-pu-x1d"/>
+                            <constraint firstItem="wHV-VM-kDn" firstAttribute="top" secondItem="CXL-ut-XII" secondAttribute="top" constant="635" id="UYs-T6-MMo"/>
+                            <constraint firstItem="XYm-93-sn8" firstAttribute="leading" secondItem="CXL-ut-XII" secondAttribute="leading" constant="231" id="dg4-kV-BcY"/>
+                            <constraint firstItem="wHV-VM-kDn" firstAttribute="leading" secondItem="CXL-ut-XII" secondAttribute="leading" constant="76" id="pDe-Ft-ia2"/>
+                            <constraint firstItem="XYm-93-sn8" firstAttribute="top" secondItem="CXL-ut-XII" secondAttribute="top" constant="635" id="wUU-qM-4KE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Issued Ticket" id="CjX-e9-dHY"/>
                     <connections>
                         <outlet property="Cancel" destination="wHV-VM-kDn" id="vbQ-pe-vOs"/>
                         <outlet property="Confirm" destination="XYm-93-sn8" id="VHo-1z-h1B"/>
+                        <outlet property="moviePoster" destination="frb-kf-qTk" id="1v2-Ih-dER"/>
                         <outlet property="ticketDetailsTextView" destination="2TV-39-wxa" id="ZOr-q3-3tK"/>
                     </connections>
                 </viewController>
