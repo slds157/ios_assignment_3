@@ -118,12 +118,12 @@
 				BCA5583E2A15F55E003A176A /* Assets.xcassets */,
 				BCA558402A15F55E003A176A /* LaunchScreen.storyboard */,
 				BCA558432A15F55E003A176A /* Info.plist */,
-				BCA0918A2A1630220097022B /* MovieEditViewController.swift */,
 				9B6292ED2A189CA9001E88A9 /* MovieChooseViewController.swift */,
+				BCA0918A2A1630220097022B /* MovieEditViewController.swift */,
+				EAF1EB802A18F0DE00171D70 /* SeatSelectionViewController.swift */,
 				DE78AAC12A18CCE6001DD16F /* IssuedTicketViewController.swift */,
 				DE78AAC32A18CCF5001DD16F /* BookingHistoryViewController.swift */,
 				EAF1EB7D2A18F0D300171D70 /* SeatButton.swift */,
-				EAF1EB802A18F0DE00171D70 /* SeatSelectionViewController.swift */,
 			);
 			path = assignment3;
 			sourceTree = "<group>";

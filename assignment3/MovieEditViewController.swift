@@ -21,8 +21,8 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
     
     @IBOutlet weak var confirmButton: UIButton!
     
-    let dates = ["2023-05-14", "2023-05-15", "2023-05-16"]
-        var times = ["10:00 AM", "2:00 PM", "6:00 PM"]
+    var dates = ["2023-06-14", "2023-06-15", "2023-06-16"]
+    var times = ["10:00 AM", "2:00 PM", "6:00 PM"]
     
     var userName : String = " "
     
@@ -46,8 +46,11 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
         movieIntro.text = showMovieIntro(movieName: movieName)
         movieSelection.dataSource = self
         movieSelection.delegate = self
-        // Do any additional setup after loading the view.
+        
+        // Set the initial selectedTime
+        selectedTime = "\(dates[0]) -- \(times[0])"
     }
+
     
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -117,15 +120,6 @@ class MovieEditViewController: UIViewController, UIPickerViewDataSource, UIPicke
           destinationView.showTime = selectedTime
           print(selectedTime)
         }
-}
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   }
 
 }
