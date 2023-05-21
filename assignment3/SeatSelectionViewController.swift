@@ -10,6 +10,22 @@ import UIKit
 
 class SeatSelectionViewController: UIViewController {
     
+    
+    
+    @IBOutlet weak var confirm: UIBarButtonItem!
+    @IBAction func confirmBarButtonTapped(_ sender: UIBarButtonItem) {
+        if selectedSeats.isEmpty {
+            let alertController = UIAlertController(title: "No seat selected", message: "Please select at least one seat.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            saveSeatsToUserDefaults()
+            let defaults = UserDefaults.standard
+            defaults.set(Date(), forKey: "BookingDate_\(Ticket_Key)")
+        }
+    }
+    
     var seats: [[Seat]] = Array(repeating: Array(repeating: Seat(row: 0, column: 0, status: .available), count: 6), count: 10)
     var seatButtons: [[SeatButton]] = []
     var screenWidth: CGFloat = UIScreen.main.bounds.size.width
@@ -22,7 +38,7 @@ class SeatSelectionViewController: UIViewController {
     
     var Ticket_Key: String = " "
     var selectedSeats: [Seat] = []
-    
+    var seatSelectionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +48,16 @@ class SeatSelectionViewController: UIViewController {
         seatButtonSpacing = seatButtonWidth/4
         Ticket_Key = "\(userName)|\(movie)|\(showTime)"
         loadSeatsFromUserDefaults()
+        setupSeatSelectionLabel()
         setupSeatButtons()
+    }
+    
+    func setupSeatSelectionLabel() {
+        seatSelectionLabel = UILabel(frame: CGRect(x: 20, y: 120, width: view.frame.width - 40, height: 50))
+        seatSelectionLabel.text = "Please select your seat:"
+        seatSelectionLabel.font = UIFont.systemFont(ofSize: 20)
+        seatSelectionLabel.textAlignment = .center
+        view.addSubview(seatSelectionLabel)
     }
     
     func initializeSeats() {
@@ -42,21 +67,17 @@ class SeatSelectionViewController: UIViewController {
             }
         }
     }
+    
     func loadSeatsFromUserDefaults() {
         let defaults = UserDefaults.standard
 
-        // Try to get the data from UserDefaults
         if let savedSeatsData = defaults.object(forKey: Ticket_Key) as? Data {
             let decoder = PropertyListDecoder()
             if let loadedSeats = try? decoder.decode([Seat].self, from: savedSeatsData) {
-                // Reset all the seats to be available first
                 initializeSeats()
 
-                // If we successfully got the data, loop over it
                 for loadedSeat in loadedSeats {
-                    // Make sure the seat position exists in the seats array
                     if loadedSeat.row < seats.count && loadedSeat.column < seats[loadedSeat.row].count {
-                        // Assign the loaded seat to the correct position in the seats array
                         seats[loadedSeat.row][loadedSeat.column] = loadedSeat
                     }
                 }
@@ -64,8 +85,6 @@ class SeatSelectionViewController: UIViewController {
             }
         }
 
-        // If we get here, there was no data in UserDefaults or it couldn't be decoded
-        // So we initialize all seats as available
         initializeSeats()
     }
     
@@ -82,9 +101,9 @@ class SeatSelectionViewController: UIViewController {
         for row in 0..<numberOfRows {
             var buttonRow: [SeatButton] = []
             
-            // Create row number label
             let rowLabel = UILabel()
             rowLabel.text = "\(row + 1)"
+            rowLabel.textAlignment = .center
             rowLabel.frame = CGRect(x: startX - labelSize.width, y: startY + CGFloat(row) * (seatButtonSize.height + seatButtonSpacing), width: labelSize.width, height: labelSize.height)
             view.addSubview(rowLabel)
 
@@ -100,10 +119,10 @@ class SeatSelectionViewController: UIViewController {
                 view.addSubview(seatButton)
                 buttonRow.append(seatButton)
                 
-                // Create column number label for the first row only
                 if row == 0 {
                     let columnLabel = UILabel()
                     columnLabel.text = "\(column + 1)"
+                    columnLabel.textAlignment = .center
                     columnLabel.frame = CGRect(x: x, y: startY + totalHeight + seatButtonSpacing, width: labelSize.width, height: labelSize.height)
                     view.addSubview(columnLabel)
                 }
@@ -126,7 +145,6 @@ class SeatSelectionViewController: UIViewController {
         }
     
     func saveSeatsToUserDefaults() {
-        // Change the status of all selected seats to 'unavailable'
         for seat in selectedSeats {
             seats[seat.row][seat.column].status = .unavailable
         }
@@ -139,20 +157,27 @@ class SeatSelectionViewController: UIViewController {
         }
     }
     
-    @IBAction func confirmBarButtonTapped(_ sender: UIBarButtonItem) {
-        saveSeatsToUserDefaults()
-        let defaults = UserDefaults.standard
-        defaults.set(Date(), forKey: "BookingDate_\(Ticket_Key)")
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "goToTicket" {
+            if selectedSeats.isEmpty {
+                let alertController = UIAlertController(title: "No seat selected", message: "Please select at least one seat.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+                
+                return false
+            }
+        }
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToTicket"{
             let ticketVC = segue.destination as! IssuedTicketViewController
             ticketVC.Ticket_Key = Ticket_Key
-            ticketVC.issuedSeats = selectedSeats // pass the selected seats information
+            ticketVC.issuedSeats = selectedSeats
         }
     }
 
-    
 }
 
