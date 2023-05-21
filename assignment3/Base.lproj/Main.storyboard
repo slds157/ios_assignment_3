@@ -17,27 +17,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVJ-Gr-ThK">
-                                <rect key="frame" x="159" y="511" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EX8-Q1-8d0">
+                                <rect key="frame" x="128" y="409" width="137" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <segue destination="63L-uX-u9Z" kind="show" id="lpz-0A-kVV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EX8-Q1-8d0">
-                                <rect key="frame" x="159" y="409" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Ticket Booking"/>
                                 <connections>
                                     <segue destination="zdg-T0-Nto" kind="show" id="67f-kI-daW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVJ-Gr-ThK">
+                                <rect key="frame" x="124" y="476" width="145" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Booking History"/>
+                                <connections>
+                                    <segue destination="63L-uX-u9Z" kind="show" id="lpz-0A-kVV"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pVJ-Gr-ThK" secondAttribute="trailing" constant="124" id="Ofw-hK-VOy"/>
+                            <constraint firstItem="pVJ-Gr-ThK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="124" id="TLP-gH-498"/>
+                            <constraint firstItem="EX8-Q1-8d0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="128" id="VEC-BT-ICs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pVJ-Gr-ThK" secondAttribute="bottom" constant="307" id="VLh-wz-5wA"/>
+                            <constraint firstItem="EX8-Q1-8d0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="306" id="Xp6-pP-MYT"/>
+                            <constraint firstItem="pVJ-Gr-ThK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="373" id="ZFD-Q2-oay"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EX8-Q1-8d0" secondAttribute="trailing" constant="128" id="hCd-7e-dS2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="EX8-Q1-8d0" secondAttribute="bottom" constant="374" id="jyJ-o2-Yo8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="r1Q-F8-3Sm"/>
                 </viewController>
@@ -120,7 +128,7 @@
             </objects>
             <point key="canvasLocation" x="54.198473282442748" y="-34.507042253521128"/>
         </scene>
-        <!--Movie Choose View Controller-->
+        <!--Movie Selection-->
         <scene sceneID="vtY-e5-GcM">
             <objects>
                 <viewController id="zdg-T0-Nto" customClass="MovieChooseViewController" customModule="assignment3" customModuleProvider="target" sceneMemberID="viewController">
@@ -168,7 +176,7 @@
                             <constraint firstItem="Vno-7o-lzc" firstAttribute="leading" secondItem="z6x-Ci-7Ps" secondAttribute="leading" constant="10" id="une-yk-K3c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="SZm-9A-m3v"/>
+                    <navigationItem key="navigationItem" title="Movie Selection" id="SZm-9A-m3v"/>
                     <connections>
                         <outlet property="attentionLabel" destination="r7V-ZE-qCX" id="EYd-Na-1oh"/>
                         <outlet property="chooseButton" destination="9Yy-dV-itw" id="Ja1-c2-tGS"/>
@@ -179,7 +187,7 @@
             </objects>
             <point key="canvasLocation" x="1964" y="-37"/>
         </scene>
-        <!--Movie Edit View Controller-->
+        <!--Time Selection-->
         <scene sceneID="vH1-y5-jlH">
             <objects>
                 <viewController id="ogj-1z-fQl" customClass="MovieEditViewController" customModule="assignment3" customModuleProvider="target" sceneMemberID="viewController">
@@ -243,7 +251,7 @@
                             <constraint firstItem="e9D-Mo-6Rc" firstAttribute="top" secondItem="GcM-hS-SoO" secondAttribute="bottom" constant="10" id="rHU-dQ-IzV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3Ts-74-QDF"/>
+                    <navigationItem key="navigationItem" title="Time Selection" id="3Ts-74-QDF"/>
                     <connections>
                         <outlet property="confirmButton" destination="e9D-Mo-6Rc" id="d25-gh-QRP"/>
                         <outlet property="movieIntro" destination="grL-gt-e1J" id="FOZ-uW-9Qw"/>
@@ -256,7 +264,7 @@
             </objects>
             <point key="canvasLocation" x="2937" y="-37"/>
         </scene>
-        <!--Seat Selection View Controller-->
+        <!--Seat Selection-->
         <scene sceneID="5wR-id-oDf">
             <objects>
                 <viewController storyboardIdentifier="SeatSelectionViewController" id="1Ls-lP-zSf" customClass="SeatSelectionViewController" customModule="assignment3" sceneMemberID="viewController">
@@ -266,7 +274,7 @@
                         <viewLayoutGuide key="safeArea" id="gDw-io-qbV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pjz-5a-wFn">
+                    <navigationItem key="navigationItem" title="Seat Selection" id="pjz-5a-wFn">
                         <barButtonItem key="rightBarButtonItem" title="Confirm" id="rpF-Ya-K3P">
                             <connections>
                                 <segue destination="M1z-Gp-OJw" kind="show" identifier="goToTicket" id="T9a-83-lc3"/>
