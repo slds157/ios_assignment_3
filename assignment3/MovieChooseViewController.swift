@@ -43,16 +43,14 @@ class MovieChooseViewController: UIViewController, UIScrollViewDelegate {
         } else {
             statusBarHeight = UIApplication.shared.statusBarFrame.height
         }
-        // Decrease topOffset to bring the picture up
         let topOffset: CGFloat = (self.navigationController?.navigationBar.frame.size.height ?? 0) + statusBarHeight + 30
         
         let scrollViewY = topOffset
 
-        // Create titleLabel
-        titleLabel = UILabel(frame: CGRect(x: scrollViewX, y: scrollViewY + imageHeight - 40, width: imageWidth, height: 40)) // Positioned below scrollView
+        titleLabel = UILabel(frame: CGRect(x: scrollViewX, y: scrollViewY + imageHeight - 40, width: imageWidth, height: 40))
         titleLabel.textAlignment = .center
-        titleLabel.text = movieTitleCollection[images[0]] // Initial title
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 18) // Making title bold
+        titleLabel.text = movieTitleCollection[images[0]]
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
         self.view.addSubview(titleLabel)
 
         scrollView = UIScrollView(frame: CGRect(x: 0, y: scrollViewY, width: self.view.frame.size.width, height: imageHeight))
@@ -75,7 +73,6 @@ class MovieChooseViewController: UIViewController, UIScrollViewDelegate {
 
         self.view.addSubview(scrollView)
 
-        // Create page control
         pageControl = UIPageControl(frame: CGRect(x: scrollViewX, y: scrollView.frame.maxY, width: imageWidth, height: 20))
         pageControl.numberOfPages = images.count
         pageControl.currentPage = 0
@@ -83,22 +80,19 @@ class MovieChooseViewController: UIViewController, UIScrollViewDelegate {
         pageControl.currentPageIndicatorTintColor = .black
         self.view.addSubview(pageControl)
         
-        // Create instructionLabel
         let instructionLabel = UILabel(frame: CGRect(x: scrollViewX, y: pageControl.frame.maxY + 10, width: imageWidth, height: 40)) // Positioned below pageControl
         instructionLabel.textAlignment = .center
         instructionLabel.text = "Please select a movie and enter your name:"
         instructionLabel.font = UIFont.systemFont(ofSize: 16)
-        instructionLabel.numberOfLines = 0 // This allows the label to have as many lines as needed
-        instructionLabel.lineBreakMode = .byWordWrapping // This wraps text to the next line
+        instructionLabel.numberOfLines = 0
+        instructionLabel.lineBreakMode = .byWordWrapping
         self.view.addSubview(instructionLabel)
         
-        // Create UITextField
         nameField = UITextField(frame: CGRect(x: scrollViewX, y: instructionLabel.frame.maxY + 10, width: imageWidth, height: 40))
         nameField.borderStyle = .roundedRect
         nameField.placeholder = "Enter your name"
         self.view.addSubview(nameField)
 
-        // Create UILabel
         attentionLabel = UILabel(frame: CGRect(x: scrollViewX, y: nameField.frame.maxY + 10, width: imageWidth, height: 40))
         attentionLabel.textColor = .red
         attentionLabel.textAlignment = .center
@@ -114,7 +108,7 @@ class MovieChooseViewController: UIViewController, UIScrollViewDelegate {
         imageName = images[currentImage]
         if let imgName = imageName, let title = movieTitleCollection[imgName] {
             self.movieTitle = title
-            titleLabel.text = title // Updating title label
+            titleLabel.text = title
         }
         pageControl.currentPage = currentImage
     }
