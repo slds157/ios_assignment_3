@@ -43,18 +43,8 @@ class IssuedTicketViewController: UIViewController {
     
     func displayTicketInfo() {
         var detailsText = "Thank you \(userName), Your order is: \nMovie: \(movie)\nTime: \(showTime)\n"
-        var seatDict: [Int: [Int]] = [:]
         for seat in issuedSeats {
-            if seatDict[seat.row] == nil {
-                seatDict[seat.row] = [seat.column]
-            } else {
-                seatDict[seat.row]?.append(seat.column)
-            }
-        }
-        let sortedSeatDict = seatDict.sorted(by: { $0.key < $1.key })
-        for (key, value) in sortedSeatDict {
-            let sortedColumns = value.sorted()
-            detailsText += "Seat: Row: \(key + 1), Column: \(sortedColumns.map({ String($0 + 1) }).joined(separator: ", "))\n"
+            detailsText += "Seat: Row: \(seat.row + 1), Column: \(seat.column + 1)\n"
         }
         let defaults = UserDefaults.standard
         if let bookingDateTime = defaults.object(forKey: "BookingDate_\(Ticket_Key)") as? Date {
@@ -64,8 +54,7 @@ class IssuedTicketViewController: UIViewController {
         }
         ticketDetailsTextView.text = detailsText
     }
-    
-    
+
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
         let defaults = UserDefaults.standard
         defaults.set(Date(), forKey: "BookingDate_\(Ticket_Key)")
