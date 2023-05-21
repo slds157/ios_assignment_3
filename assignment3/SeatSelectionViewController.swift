@@ -12,8 +12,10 @@ class SeatSelectionViewController: UIViewController {
     
     var seats: [[Seat]] = Array(repeating: Array(repeating: Seat(row: 0, column: 0, status: .available), count: 6), count: 10)
     var seatButtons: [[SeatButton]] = []
-    let seatButtonSize: CGSize = CGSize(width: 40, height: 40)
-    let seatButtonSpacing: CGFloat = 10
+    var screenWidth: CGFloat = UIScreen.main.bounds.size.width
+    var seatButtonWidth: CGFloat = 40
+    var seatButtonSize: CGSize = CGSize(width: 40, height: 40)
+    var seatButtonSpacing: CGFloat = 10
     var movie: String = " "
     var showTime: String = " "
     var userName: String = " "
@@ -25,6 +27,9 @@ class SeatSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        seatButtonWidth = screenWidth/10
+        seatButtonSize = CGSize(width: seatButtonWidth, height: seatButtonWidth)
+        seatButtonSpacing = seatButtonWidth/4
         Ticket_Key = "\(userName)|\(movie)|\(showTime)"
         loadSeatsFromUserDefaults()
         setupSeatButtons()
@@ -71,9 +76,18 @@ class SeatSelectionViewController: UIViewController {
         let totalHeight = CGFloat(numberOfRows) * (seatButtonSize.height + seatButtonSpacing) - seatButtonSpacing
         let startX = (view.bounds.width - totalWidth) / 2
         let startY = (view.bounds.height - totalHeight) / 2
+
+        let labelSize: CGSize = CGSize(width: seatButtonSize.width, height: seatButtonSize.height)
         
         for row in 0..<numberOfRows {
             var buttonRow: [SeatButton] = []
+            
+            // Create row number label
+            let rowLabel = UILabel()
+            rowLabel.text = "\(row + 1)"
+            rowLabel.frame = CGRect(x: startX - labelSize.width, y: startY + CGFloat(row) * (seatButtonSize.height + seatButtonSpacing), width: labelSize.width, height: labelSize.height)
+            view.addSubview(rowLabel)
+
             for column in 0..<numberOfColumns {
                 let seatButton = SeatButton(type: .custom)
                 seatButton.configure(seat: seats[row][column])
@@ -85,6 +99,14 @@ class SeatSelectionViewController: UIViewController {
                 seatButton.frame = CGRect(x: x, y: y, width: seatButtonSize.width, height: seatButtonSize.height)
                 view.addSubview(seatButton)
                 buttonRow.append(seatButton)
+                
+                // Create column number label for the first row only
+                if row == 0 {
+                    let columnLabel = UILabel()
+                    columnLabel.text = "\(column + 1)"
+                    columnLabel.frame = CGRect(x: x, y: startY + totalHeight + seatButtonSpacing, width: labelSize.width, height: labelSize.height)
+                    view.addSubview(columnLabel)
+                }
             }
             seatButtons.append(buttonRow)
         }
