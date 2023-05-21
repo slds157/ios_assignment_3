@@ -9,13 +9,7 @@ import UIKit
 
 class IssuedTicketViewController: UIViewController {
     
-    var Ticket_Key: String = " "
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    @IBAction func goHome(_ sender: UIBarButtonItem) {
-        navigationController?.popToRootViewController(animated: true)
-    }
+
     
     
     override func viewDidLoad() {
