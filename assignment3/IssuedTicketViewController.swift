@@ -111,9 +111,9 @@ class IssuedTicketViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
         
-        let domain = Bundle.main.bundleIdentifier!
-        UserDefaults.standard.removePersistentDomain(forName: domain)
-        UserDefaults.standard.synchronize()
+//        let domain = Bundle.main.bundleIdentifier!
+//        UserDefaults.standard.removePersistentDomain(forName: domain)
+//        UserDefaults.standard.synchronize()
 
     }
     
