@@ -30,7 +30,6 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
 
     func loadBookingsFromUserDefaults() {
         let defaults = UserDefaults.standard
-        _ = PropertyListDecoder()
         let bookingKeys = defaults.dictionaryRepresentation().keys.filter { $0.hasPrefix("BookingDate_") }
         for key in bookingKeys {
             if let bookingDateTime = defaults.object(forKey: key) as? Date {

@@ -29,10 +29,12 @@ class SeatButton: UIButton {
 
 }
 
-struct Seat: Codable {
+struct Seat: Codable{
+    
     let row: Int
     let column: Int
     var status: SeatStatus
+
 }
 
 enum SeatStatus: Int, Codable {
