@@ -7,27 +7,33 @@
 
 import UIKit
 
+// Struct to represent a booking
 struct Booking: Codable {
     let userName: String
     let movie: String
     let orderTime: Date
 }
 
+// Class to represent booking history view controller
 class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    // Outlet for the table view on the screen
     @IBOutlet weak var tableView: UITableView!
+
+    // Property to hold list of bookings
     var bookings: [Booking] = []
 
+    // Function called when the view has loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Load bookings from user defaults and set table view delegate and data source
         loadBookingsFromUserDefaults()
-
-        // The view controller itself will provide the delegate methods and row data for the table view.
         tableView.delegate = self
         tableView.dataSource = self
     }
 
+    // Load bookings from user defaults
     func loadBookingsFromUserDefaults() {
         let defaults = UserDefaults.standard
         let bookingKeys = defaults.dictionaryRepresentation().keys.filter { $0.hasPrefix("BookingDate_") }
@@ -43,23 +49,25 @@ class BookingHistoryViewController: UIViewController, UITableViewDelegate, UITab
                 }
             }
         }
+        // Sort bookings by order time
         bookings.sort { $0.orderTime > $1.orderTime }
     }
 
     // MARK: - Table view data source
 
+    // Returns the number of sections in the table view
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
+    // Returns the number of rows in a section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookings.count
     }
 
+    // Provides a cell for a particular row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookingCell", for: indexPath)
-
-        // Configure the cell...
         let booking = bookings[indexPath.row]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"

@@ -9,6 +9,7 @@ import UIKit
 
 class IssuedTicketViewController: UIViewController {
     
+    // Properties to hold information related to the booked ticket
     var Ticket_Key: String = ""
     var issuedSeats: [Seat] = []
     var selectedSeats: [Seat] = []
@@ -16,6 +17,7 @@ class IssuedTicketViewController: UIViewController {
     var movie: String = ""
     var showTime: String = ""
     
+    // Outlets for UI elements on the screen
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var ticketDetailsTextView: UITextView!
     @IBOutlet weak var Confirm: UIButton!
@@ -28,6 +30,7 @@ class IssuedTicketViewController: UIViewController {
         displayMoviePoster()
     }
     
+    // Load saved seat information from User Defaults
     func loadSeatsFromUserDefaults() {
         let defaults = UserDefaults.standard
         if let savedSeatsData = defaults.object(forKey: Ticket_Key) as? Data {
@@ -43,6 +46,7 @@ class IssuedTicketViewController: UIViewController {
         }
     }
     
+    // Display ticket information in a text view
     func displayTicketInfo() {
         var detailsText = "Thank you \(userName), \n\nYour order is: \n\nMovie: \(movie)\n\nTime: \(showTime)\n\n"
         for seat in selectedSeats {
@@ -54,6 +58,7 @@ class IssuedTicketViewController: UIViewController {
         ticketDetailsTextView.text = detailsText
     }
     
+    // Display corresponding movie poster based on selected movie
     func displayMoviePoster() {
         switch movie {
         case "Evil Dead Rise":
@@ -70,18 +75,28 @@ class IssuedTicketViewController: UIViewController {
             print("No matching movie poster found")
         }
     }
-
+    
+    // Actions for confirm and cancel buttons
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Confirmed", message: "Your order has been confirmed.", preferredStyle: .alert)
+        presentAlert(title: "Confirmed", message: "Your order has been confirmed.")
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        cancelTicketBooking()
+        presentAlert(title: "Cancelled", message: "Your order has been cancelled.")
+    }
+    
+    // Present alert dialog with given title and message
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
             self.navigationController?.popToRootViewController(animated: true)
         }))
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func cancelButtonTapped(_ sender: UIButton) {
-
-        
+    // Cancel ticket booking and update User Defaults
+    func cancelTicketBooking() {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "BookingDate_\(userName)|\(Ticket_Key)")
         issuedSeats = issuedSeats.filter { issuedSeat in
@@ -93,12 +108,6 @@ class IssuedTicketViewController: UIViewController {
         if let updatedData = try? encoder.encode(issuedSeats) {
             defaults.set(updatedData, forKey: Ticket_Key)
         }
-        //deletBookingDateFromUserDefaults()
-        let alert = UIAlertController(title: "Cancelled", message: "Your order has been cancelled.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            self.navigationController?.popToRootViewController(animated: true)
-        }))
-        self.present(alert, animated: true, completion: nil)
-
     }
+    
 }

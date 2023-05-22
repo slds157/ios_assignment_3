@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xBB-4I-Z6F">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xBB-4I-Z6F">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -143,43 +144,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vno-7o-lzc">
-                                <rect key="frame" x="10" y="565" width="373.33333333333331" height="46.666666666666629"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <rect key="frame" x="94" y="551" width="204" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="please enter your name:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7V-ZE-qCX">
+                                <rect key="frame" x="50" y="506" width="292" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yy-dV-itw">
-                                <rect key="frame" x="154" y="684" width="85" height="55"/>
+                                <rect key="frame" x="154" y="714" width="85" height="55"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Next">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Confirm">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="chooseButtonCheck:" destination="zdg-T0-Nto" eventType="touchUpInside" id="kWx-4x-pX5"/>
                                     <segue destination="ogj-1z-fQl" kind="show" identifier="goToEdit" id="D1l-nA-FnA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome ！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7V-ZE-qCX">
-                                <rect key="frame" x="19" y="519" width="373.33333333333331" height="37.333333333333371"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="z6x-Ci-7Ps"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9Yy-dV-itw" firstAttribute="leading" secondItem="z6x-Ci-7Ps" secondAttribute="leading" constant="154" id="1dP-jO-eZ3"/>
-                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="bottom" secondItem="9Yy-dV-itw" secondAttribute="bottom" constant="79" id="2iF-wy-mME"/>
-                            <constraint firstItem="9Yy-dV-itw" firstAttribute="top" secondItem="z6x-Ci-7Ps" secondAttribute="top" constant="581" id="3nH-Tf-e6t"/>
-                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="trailing" secondItem="Vno-7o-lzc" secondAttribute="trailing" constant="9.6699999999999999" id="4Rj-PQ-D9q"/>
-                            <constraint firstItem="Vno-7o-lzc" firstAttribute="top" secondItem="z6x-Ci-7Ps" secondAttribute="top" constant="462" id="6xC-Ui-lub"/>
-                            <constraint firstItem="r7V-ZE-qCX" firstAttribute="leading" secondItem="z6x-Ci-7Ps" secondAttribute="leading" constant="19" id="BN3-s9-obx"/>
-                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="trailing" secondItem="r7V-ZE-qCX" secondAttribute="trailing" constant="0.66666666666668561" id="D8N-eB-fXu"/>
-                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="bottom" secondItem="r7V-ZE-qCX" secondAttribute="bottom" constant="261.66666666666674" id="N84-nc-dma"/>
-                            <constraint firstItem="r7V-ZE-qCX" firstAttribute="top" secondItem="z6x-Ci-7Ps" secondAttribute="top" constant="416" id="Pqt-Ew-JKe"/>
+                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="bottom" secondItem="9Yy-dV-itw" secondAttribute="bottom" constant="49" id="2iF-wy-mME"/>
+                            <constraint firstItem="9Yy-dV-itw" firstAttribute="top" secondItem="z6x-Ci-7Ps" secondAttribute="top" constant="611" id="3nH-Tf-e6t"/>
+                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="trailing" secondItem="Vno-7o-lzc" secondAttribute="trailing" constant="95" id="4Rj-PQ-D9q"/>
+                            <constraint firstItem="Vno-7o-lzc" firstAttribute="top" secondItem="z6x-Ci-7Ps" secondAttribute="top" constant="448" id="6xC-Ui-lub"/>
+                            <constraint firstItem="r7V-ZE-qCX" firstAttribute="leading" secondItem="z6x-Ci-7Ps" secondAttribute="leading" constant="50" id="BN3-s9-obx"/>
+                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="trailing" secondItem="r7V-ZE-qCX" secondAttribute="trailing" constant="51" id="D8N-eB-fXu"/>
+                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="bottom" secondItem="r7V-ZE-qCX" secondAttribute="bottom" constant="275" id="N84-nc-dma"/>
+                            <constraint firstItem="r7V-ZE-qCX" firstAttribute="top" secondItem="z6x-Ci-7Ps" secondAttribute="top" constant="403" id="Pqt-Ew-JKe"/>
                             <constraint firstItem="z6x-Ci-7Ps" firstAttribute="trailing" secondItem="9Yy-dV-itw" secondAttribute="trailing" constant="154" id="SsC-Cl-KAp"/>
-                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="bottom" secondItem="Vno-7o-lzc" secondAttribute="bottom" constant="206.33000000000001" id="caw-ty-zWI"/>
-                            <constraint firstItem="Vno-7o-lzc" firstAttribute="leading" secondItem="z6x-Ci-7Ps" secondAttribute="leading" constant="10" id="une-yk-K3c"/>
+                            <constraint firstItem="z6x-Ci-7Ps" firstAttribute="bottom" secondItem="Vno-7o-lzc" secondAttribute="bottom" constant="220" id="caw-ty-zWI"/>
+                            <constraint firstItem="Vno-7o-lzc" firstAttribute="leading" secondItem="z6x-Ci-7Ps" secondAttribute="leading" constant="94" id="une-yk-K3c"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Movie Selection" id="SZm-9A-m3v"/>
@@ -191,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JwW-7W-Inu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1964" y="-37"/>
+            <point key="canvasLocation" x="1962.5954198473282" y="-37.323943661971832"/>
         </scene>
         <!--Time Selection-->
         <scene sceneID="vH1-y5-jlH">
@@ -279,7 +280,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NsX-il-6vM">
-                                <rect key="frame" x="154" y="748" width="85" height="35"/>
+                                <rect key="frame" x="154" y="736" width="85" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Confirm"/>
                                 <connections>
@@ -291,10 +292,10 @@
                         <viewLayoutGuide key="safeArea" id="gDw-io-qbV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gDw-io-qbV" firstAttribute="bottom" secondItem="NsX-il-6vM" secondAttribute="bottom" constant="35" id="7qR-w3-1L4"/>
+                            <constraint firstItem="gDw-io-qbV" firstAttribute="bottom" secondItem="NsX-il-6vM" secondAttribute="bottom" constant="47" id="7qR-w3-1L4"/>
                             <constraint firstItem="NsX-il-6vM" firstAttribute="leading" secondItem="gDw-io-qbV" secondAttribute="leading" constant="154" id="MBE-cH-3eF"/>
                             <constraint firstItem="gDw-io-qbV" firstAttribute="trailing" secondItem="NsX-il-6vM" secondAttribute="trailing" constant="154" id="UR8-cY-Ahf"/>
-                            <constraint firstItem="NsX-il-6vM" firstAttribute="top" secondItem="gDw-io-qbV" secondAttribute="top" constant="645" id="obo-oe-aAR"/>
+                            <constraint firstItem="NsX-il-6vM" firstAttribute="top" secondItem="gDw-io-qbV" secondAttribute="top" constant="633" id="obo-oe-aAR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Seat Selection" id="pjz-5a-wFn"/>
