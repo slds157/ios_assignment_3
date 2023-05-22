@@ -48,8 +48,9 @@ class IssuedTicketViewController: UIViewController {
         for seat in selectedSeats {
             detailsText += "Seat: Row: \(seat.row + 1), Column: \(seat.column + 1)\n\n"
         }
-
-        detailsText += "\nYou can confirm or cancel this order by tapping the buttons below"
+        
+        let totalPrice = selectedSeats.count * 20
+        detailsText += "Total price: $\(totalPrice)\n\nYou can confirm or cancel this order by tapping the buttons below"
         ticketDetailsTextView.text = detailsText
     }
     
