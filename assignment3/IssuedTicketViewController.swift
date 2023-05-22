@@ -15,7 +15,6 @@ class IssuedTicketViewController: UIViewController {
     var userName: String = ""
     var movie: String = ""
     var showTime: String = ""
-    var UserName_Ticket_Key: String = ""
     
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var ticketDetailsTextView: UITextView!
@@ -24,7 +23,6 @@ class IssuedTicketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserName_Ticket_Key = "\(userName)|\(movie)|\(showTime)"
         loadSeatsFromUserDefaults()
         displayTicketInfo()
         displayMoviePoster()
@@ -100,10 +98,6 @@ class IssuedTicketViewController: UIViewController {
             self.navigationController?.popToRootViewController(animated: true)
         }))
         self.present(alert, animated: true, completion: nil)
-        
-        let domain = Bundle.main.bundleIdentifier!
-        UserDefaults.standard.removePersistentDomain(forName: domain)
-        UserDefaults.standard.synchronize()
-    
+
     }
 }
