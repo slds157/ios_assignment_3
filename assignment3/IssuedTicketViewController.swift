@@ -11,9 +11,11 @@ class IssuedTicketViewController: UIViewController {
     
     var Ticket_Key: String = ""
     var issuedSeats: [Seat] = []
+    var selectedSeats: [Seat] = []
     var userName: String = ""
     var movie: String = ""
     var showTime: String = ""
+    var UserName_Ticket_Key: String = ""
     
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var ticketDetailsTextView: UITextView!
@@ -22,6 +24,7 @@ class IssuedTicketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserName_Ticket_Key = "\(userName)\(movie)|\(showTime)"
         loadSeatsFromUserDefaults()
         displayTicketInfo()
         displayMoviePoster()
@@ -68,6 +71,14 @@ class IssuedTicketViewController: UIViewController {
             print("No matching movie poster found")
         }
     }
+    
+    func writeToHistory(){
+        let defaults = UserDefaults.standard
+        let encoder = PropertyListEncoder()
+        if let savedData = try? encoder.encode(selectedSeats) {
+            defaults.set(savedData, forKey: UserName_Ticket_Key)
+        }
+    }
 
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
         let defaults = UserDefaults.standard
@@ -77,17 +88,33 @@ class IssuedTicketViewController: UIViewController {
             self.navigationController?.popToRootViewController(animated: true)
         }))
         self.present(alert, animated: true, completion: nil)
+        writeToHistory()
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        
         let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: Ticket_Key)
+        //defaults.removeObject(forKey: Ticket_Key)
         defaults.removeObject(forKey: "BookingDate_\(Ticket_Key)")
+        issuedSeats = issuedSeats.filter { issuedSeat in
+            !selectedSeats.contains { selectedSeat in
+                selectedSeat.row == issuedSeat.row && selectedSeat.column == issuedSeat.column
+            }
+        }
+        let encoder = PropertyListEncoder()
+        if let updatedData = try? encoder.encode(issuedSeats) {
+            defaults.set(updatedData, forKey: Ticket_Key)
+        }
         let alert = UIAlertController(title: "Cancelled", message: "Your order has been cancelled.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
             self.navigationController?.popToRootViewController(animated: true)
         }))
         self.present(alert, animated: true, completion: nil)
+        
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+
     }
     
 }

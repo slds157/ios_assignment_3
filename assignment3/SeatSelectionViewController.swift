@@ -165,6 +165,7 @@ class SeatSelectionViewController: UIViewController {
             let ticketVC = segue.destination as! IssuedTicketViewController
             ticketVC.Ticket_Key = Ticket_Key
             ticketVC.userName = userName
+            ticketVC.selectedSeats = selectedSeats
         }
     }
 
