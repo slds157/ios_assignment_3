@@ -81,8 +81,8 @@ class IssuedTicketViewController: UIViewController {
     }
 
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
-        let defaults = UserDefaults.standard
-        defaults.set(Date(), forKey: "BookingDate_\(Ticket_Key)")
+        //let defaults = UserDefaults.standard
+       // defaults.set(Date(), forKey: "BookingDate_\(Ticket_Key)")
         let alert = UIAlertController(title: "Confirmed", message: "Your order has been confirmed.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
             self.navigationController?.popToRootViewController(animated: true)
@@ -110,11 +110,7 @@ class IssuedTicketViewController: UIViewController {
             self.navigationController?.popToRootViewController(animated: true)
         }))
         self.present(alert, animated: true, completion: nil)
-        
-//        let domain = Bundle.main.bundleIdentifier!
-//        UserDefaults.standard.removePersistentDomain(forName: domain)
-//        UserDefaults.standard.synchronize()
-
+    
     }
     
 }

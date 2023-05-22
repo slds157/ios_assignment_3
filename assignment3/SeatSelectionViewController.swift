@@ -155,7 +155,7 @@ class SeatSelectionViewController: UIViewController {
         } else {
             saveSeatsToUserDefaults()
             let defaults = UserDefaults.standard
-            defaults.set(Date(), forKey: "BookingDate_\(Ticket_Key)")
+            defaults.set(Date(), forKey: "BookingDate_\(userName)|\(Ticket_Key)")
         }
     }
     
